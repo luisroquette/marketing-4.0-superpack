@@ -24,5 +24,8 @@ Assertions — all must hold:
    plugs, Locked without it).
 9. The Phase 7 report renders one line per socket with a status — an empty
    socket is never silent.
+10. `references/sockets.json` parses, lists the same 9 sockets as sockets.md
+    with matching ids and tiers, and every unlock_chain step references valid
+    socket ids.
 
 A failed assertion is a skill regression — fix before shipping the skill.

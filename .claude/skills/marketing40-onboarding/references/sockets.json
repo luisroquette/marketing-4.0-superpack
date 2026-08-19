@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "version": "2026-08-19",
+    "source": "sockets.md",
+    "note": "Machine-readable twin of the socket registry. sockets.md is the source of truth; this file exists for programmatic consumers (dashboards, exports, graph tooling)."
+  },
+  "unlock_chain": [
+    { "step": 1, "socket_ids": [1, 2, 3], "label": "Full funnel — sales not measured" },
+    { "step": 2, "socket_ids": [4], "label": "FULL CIRCLE: traffic → click → lead → email → sale WITH origin" },
+    { "step": 3, "socket_ids": [5], "label": "Deliverability + strong attribution (Path A)" },
+    { "step": 4, "socket_ids": [6], "label": "The funnel has volume" },
+    { "step": 5, "socket_ids": [9], "label": "Leave the spreadsheet" }
+  ],
+  "sockets": [
+    {
+      "id": 1,
+      "name": "Postgres database",
+      "tier": "must",
+      "required": true,
+      "contract": "Transactional idempotent clicks (RETURNING (xmax = 0)); 7/30/90 calendar-filled metrics; shared throttle state",
+      "reference_plug": "Supabase (Lovable ships one; free tier)",
+      "alternative_plugs": ["Neon", "Railway Postgres"],
+      "locked_without": "No tracking, no throttle, no cockpit"
+    },
+    {
+      "id": 2,
+      "name": "LP hosting",
+      "tier": "must",
+      "required": true,
+      "contract": "Publication gate validates before any write",
+      "reference_plug": "Vercel",
+      "alternative_plugs": ["Netlify", "Cloudflare Pages"],
+      "locked_without": "The landing page never publishes"
+    },
+    {
+      "id": 3,
+      "name": "Email provider",
+      "tier": "must",
+      "required": "for nurture",
+      "contract": "Resend-style adapter; 1 email/lead/day; fail-closed outbox",
+      "reference_plug": "Resend",
+      "alternative_plugs": ["Mailgun", "Amazon SES", "SMTP"],
+      "locked_without": "Leads are captured and go cold"
+    },
+    {
+      "id": 4,
+      "name": "Checkout (sale source)",
+      "tier": "revenue-unlock",
+      "required": "the one that unlocks total potential",
+      "contract": "Attribution ends at the click; the bridge reads firstTrackingClickId or the same-domain cookie",
+      "reference_plug": null,
+      "alternative_plugs": ["Stripe", "Mercado Pago", "Pagar.me", "Lovable checkout"],
+      "locked_without": "The funnel never measures revenue"
+    },
+    {
+      "id": 5,
+      "name": "Domain + DNS",
+      "tier": "should",
+      "required": false,
+      "contract": "DKIM/SPF for the sender; cookie Domain attribute for attribution Path A",
+      "reference_plug": "Any registrar",
+      "alternative_plugs": ["Cloudflare", "GoDaddy", "Hostinger"],
+      "locked_without": "Emails land in spam; Path A closed (Path B stays open)"
+    },
+    {
+      "id": 6,
+      "name": "Traffic",
+      "tier": "should",
+      "required": false,
+      "contract": "Tracked links with UTMs; analytics never blocks delivery",
+      "reference_plug": "claude-seo (organic)",
+      "alternative_plugs": ["Meta Ads", "Google Ads", "influencer links"],
+      "locked_without": "Assembled funnel with no volume"
+    },
+    {
+      "id": 7,
+      "name": "SEO/GEO",
+      "tier": "optional",
+      "required": false,
+      "contract": "Audit methodology; GEO citability",
+      "reference_plug": "claude-seo (third-party, MIT)",
+      "alternative_plugs": ["Any SEO methodology"],
+      "locked_without": "The Attract stage stays uncovered"
+    },
+    {
+      "id": 8,
+      "name": "AI generation",
+      "tier": "optional",
+      "required": false,
+      "contract": "Anti-fabrication is supreme",
+      "reference_plug": "Claude API",
+      "alternative_plugs": ["Any LLM", "None (manual copy)"],
+      "locked_without": "Nothing breaks — copy becomes manual"
+    },
+    {
+      "id": 9,
+      "name": "Dashboard/reporting",
+      "tier": "optional",
+      "required": false,
+      "contract": "7/30/90 with absence ≠ zero",
+      "reference_plug": "The owner's spreadsheet",
+      "alternative_plugs": ["Metabase/Grafana", "Unified dashboard (roadmap)"],
+      "locked_without": "The owner keeps the spreadsheet"
+    }
+  ]
+}
