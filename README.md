@@ -67,6 +67,8 @@ The rest of this README is the manual: every piece in detail, every plug explain
 
 **[Open the interactive graph](assets/grafo-marketing-4.0.html)** — download the file and open it in your browser. It holds **204 concepts and ~405 connections** extracted from the repositories' contracts, clustered by funnel stage.
 
+Prefer a plain-text map? **[How the pieces communicate](docs/HOW-THE-PIECES-COMMUNICATE.md)** — every connection between the pieces and the physical mechanism behind it.
+
 The graph was not drawn: it was **built from the repos' own documents** (SKILL.md, references/, docs/, READMEs) with the graphify pipeline — semantic extraction by agents, then ten rounds of lapidation to deduplicate concepts and validate every edge against textual evidence. Every edge in the graph has a source sentence in the docs; edges without evidence were **rejected** during lapidation (e.g., the autoblog does not use tracking links, and the graph says so through the absence of that edge).
 
 What the graph reveals at a glance:
