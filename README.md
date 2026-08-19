@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/capa.png" alt="MARKETING 4.0 — monte seu ecossistema" width="100%" />
+  <img src="assets/capa.png" alt="MARKETING 4.0 — assemble your ecosystem" width="100%" />
 </p>
 
 <p align="center">
@@ -9,510 +9,601 @@
 <h1 align="center">MARKETING 4.0</h1>
 
 <p align="center">
-  <strong>Digital Marketing in the Age of AI — o manual de montagem do seu ecossistema de marketing, peça por peça, como LEGO.</strong>
+  <strong>Digital Marketing in the Age of AI — the assembly manual for your marketing ecosystem, piece by piece, like LEGO.</strong>
 </p>
 
 <p align="center">
-  <a href="https://github.com/luisroquette"><img alt="CF Gauss" src="https://img.shields.io/badge/CF_Gauss-Sistemas_de_IA_Aplicada-7B2FBE?style=for-the-badge&labelColor=1A1524"></a>
+  <a href="https://github.com/luisroquette"><img alt="CF Gauss" src="https://img.shields.io/badge/CF_Gauss-Applied_AI_Systems-7B2FBE?style=for-the-badge&labelColor=1A1524"></a>
   <img alt="MIT" src="https://img.shields.io/badge/license-MIT-2E7D32?style=for-the-badge&labelColor=1A1524">
-  <img alt="8 peças" src="https://img.shields.io/badge/peças-8-D5A62E?style=for-the-badge&labelColor=1A1524">
-  <img alt="grafo 204 nós" src="https://img.shields.io/badge/grafo-204_nós-C9A7FF?style=for-the-badge&labelColor=1A1524">
+  <img alt="8 pieces" src="https://img.shields.io/badge/pieces-8-D5A62E?style=for-the-badge&labelColor=1A1524">
+  <img alt="graph 204 nodes" src="https://img.shields.io/badge/graph-204_nodes-C9A7FF?style=for-the-badge&labelColor=1A1524">
 </p>
 
 ---
 
-## Sumário
+## Table of contents
 
-- [Em 60 segundos](#em-60-segundos)
-- [O mapa: o grafo do ecossistema](#o-mapa-o-grafo-do-ecossistema)
-- [A tese: por que peças, e não uma plataforma](#a-tese-por-que-peças-e-não-uma-plataforma)
-- [O funil em profundidade](#o-funil-em-profundidade)
-- [As 8 peças, uma a uma](#as-8-peças-uma-a-uma)
-- [Os contratos: a parte LEGO de verdade](#os-contratos-a-parte-lego-de-verdade)
-- [Receitas: fluxos prontos de montagem](#receitas-fluxos-prontos-de-montagem)
-- [O que o grafo revela](#o-que-o-grafo-revela)
-- [Perguntas frequentes](#perguntas-frequentes)
-- [Roadmap do ecossistema](#roadmap-do-ecossistema)
-- [Limitações honestas](#limitações-honestas)
-- [Licença](#licença)
-- [Tutorial de montagem, passo a passo](#tutorial-de-montagem-passo-a-passo)
-- [Por que cada regra existe](#por-que-cada-regra-existe)
-- [Solução de problemas](#solução-de-problemas)
-- [As peças contra o mercado](#as-peças-contra-o-mercado)
-- [Um dia na operação do funil completo](#um-dia-na-operação-do-funil-completo)
-- [A história do ecossistema](#a-história-do-ecossistema)
-- [Guia rápido de quem mantém](#guia-rápido-de-quem-mantém)
-- [As imagens e vídeos deste repo](#as-imagens-e-vídeos-deste-repo)
-- [Por que confiar no grafo](#por-que-contrar-no-grafo)
-- [Comparativo de montagem](#comparativo-de-montagem)
-- [Perguntas frequentes: edição estendida](#perguntas-frequentes-edição-estendida)
-- [A última palavra](#a-última-palavra)
-
----
-
-## Em 60 segundos
-
-Um funil de marketing tem seis estágios: atrair tráfego, converter em leads, nutrir os leads, vender, amplificar nas redes e medir tudo. Este superpack entrega cada estágio como uma **peça independente** — um repositório aberto, MIT, com contratos em Markdown e validadores determinísticos — e o **manual que mostra como elas se encaixam**. Você pode montar só a conversão (LP + tracking) numa tarde, ou o funil inteiro (SEO → LP → tracking → e-mail → vendas IA → social → observabilidade) ao longo de semanas. Cada peça funciona sozinha; o conjunto funciona como um sistema porque as peças se referenciam por **contratos**, não por código acoplado. O grafo interativo deste repo é o mapa dessas conexões — extraído dos próprios documentos dos sistemas, não desenhado à mão.
-
-O resto deste README é o manual: cada peça em detalhe, cada plug explicado, receitas prontas e as perguntas que você faria antes de montar.
+- [In 60 seconds](#in-60-seconds)
+- [The map: the ecosystem graph](#the-map-the-ecosystem-graph)
+- [The thesis: why pieces, not a platform](#the-thesis-why-pieces-not-a-platform)
+- [The funnel in depth](#the-funnel-in-depth)
+- [The 8 pieces, one by one](#the-8-pieces-one-by-one)
+- [The contracts: the actual LEGO part](#the-contracts-the-actual-lego-part)
+- [Recipes: ready-to-assemble flows](#recipes-ready-to-assemble-flows)
+- [What the graph reveals](#what-the-graph-reveals)
+- [Frequently asked questions](#frequently-asked-questions)
+- [Ecosystem roadmap](#ecosystem-roadmap)
+- [Honest limitations](#honest-limitations)
+- [License](#license)
+- [Step-by-step assembly tutorial](#step-by-step-assembly-tutorial)
+- [Why each rule exists](#why-each-rule-exists)
+- [Troubleshooting](#troubleshooting)
+- [The pieces vs the market](#the-pieces-vs-the-market)
+- [A day operating the full funnel](#a-day-operating-the-full-funnel)
+- [The ecosystem's story](#the-ecosystems-story)
+- [Maintainer quick guide](#maintainer-quick-guide)
+- [Security model](#security-model)
+- [What it costs to run](#what-it-costs-to-run)
+- [Migrating from a closed platform](#migrating-from-a-closed-platform)
+- [Images and videos in this repo](#images-and-videos-in-this-repo)
+- [Why trust the graph](#why-trust-the-graph)
+- [Assembly comparison](#assembly-comparison)
+- [FAQ: extended edition](#faq-extended-edition)
+- [Community and contributing](#community-and-contributing)
+- [Changelog](#changelog)
+- [The final word](#the-final-word)
 
 ---
 
-## O mapa: o grafo do ecossistema
+## In 60 seconds
 
-**[Abra o grafo interativo](assets/grafo-marketing-4.0.html)** — baixe o arquivo e abra no navegador. São **204 conceitos e ~405 conexões** extraídos dos contratos dos sistemas, clusterizados por estágio do funil.
+A marketing funnel has six stages: attract traffic, convert it into leads, nurture the leads, sell, amplify on social networks, and measure everything. This superpack delivers every stage as an **independent piece** — an open MIT repository with Markdown contracts and deterministic validators — plus the **manual that shows how the pieces plug together**. You can assemble just the conversion layer (LP + tracking) in an afternoon, or the whole funnel (SEO → LP → tracking → email → AI sales → social → observability) over a few weeks. Each piece works alone; the set works as a system because the pieces reference each other through **contracts**, not coupled code. The interactive graph in this repo is the map of those connections — extracted from the systems' own documents, not hand-drawn.
 
-O grafo não foi desenhado: ele foi **construído a partir dos próprios documentos** dos repos (SKILL.md, references/, docs/, READMEs) com o pipeline graphify — extração semântica por agentes, quatro rodadas de lapidação para deduplicar conceitos e validar cada aresta contra evidência textual. Cada aresta do grafo tem uma frase de origem nos docs; arestas sem evidência foram **rejeitadas** na lapidação (ex.: o autoblog não usa tracking links, e o grafo diz isso pela ausência da aresta).
-
-O que o grafo revela em um olhar:
-
-- **O hub é o motor de e-mail** — o MailMKT concentra 45 conexões, porque o cockpit toca throttle, dispatcher, outbox, tracking e dashboard.
-- **Três princípios atravessam os repos**: "ausência nunca é zero", "analytics nunca bloqueia entrega" e "gates em cascata" aparecem em documentos de sistemas diferentes sem se copiarem — o grafo os conecta por similaridade semântica.
-- **O incidente é a arquitetura**: o nó do incidente de 17/08 (três e-mails em uma hora para um lead real) conecta-se ao throttle, ao dispatcher e ao outbox — o motivo de cada um existir.
+The rest of this README is the manual: every piece in detail, every plug explained, ready-made recipes, and the questions you would ask before assembling.
 
 ---
 
-## A tese: por que peças, e não uma plataforma
+## The map: the ecosystem graph
 
-Plataformas de marketing fechadas vendem o funil inteiro de uma vez: você paga por estágios que não usa, não audita as regras que governam seu dinheiro, e fica preso quando o contrato muda. Este superpack parte da tese contrária:
+**[Open the interactive graph](assets/grafo-marketing-4.0.html)** — download the file and open it in your browser. It holds **204 concepts and ~405 connections** extracted from the repositories' contracts, clustered by funnel stage.
 
-1. **Cada estágio do funil é um problema diferente** — auditar SEO não é nutrir leads, e nutrir leads não é atribuir vendas. Resolver os seis com um produto só produz um produto medíocre nos seis.
-2. **Os estágios só precisam se encontrar nos contratos** — a LP precisa saber o que é um clique (o tracklink define); o e-mail precisa saber quem é um lead (a LP entrega). Três tabelas de contrato resolvem isso; nenhum acoplamento de código é necessário.
-3. **A auditabilidade é o produto** — as regras são prosa que você lê e validadores que você roda. "Como sabemos que o throttle funciona?" tem resposta: `npm test`, 107 testes.
-4. **A honestidade é a marca** — ausência nunca é zero, anti-fabricação vence página bonita, e as limitações estão escritas em cada repo. O grafo registra até as conexões que NÃO existem (porque os docs não as sustentam).
+The graph was not drawn: it was **built from the repos' own documents** (SKILL.md, references/, docs/, READMEs) with the graphify pipeline — semantic extraction by agents, then ten rounds of lapidation to deduplicate concepts and validate every edge against textual evidence. Every edge in the graph has a source sentence in the docs; edges without evidence were **rejected** during lapidation (e.g., the autoblog does not use tracking links, and the graph says so through the absence of that edge).
 
-Se você quer um funil de uma tarde, monte duas peças. Se quer o sistema da sua operação, monte as oito — a mesma disciplina, o mesmo padrão visual, os mesmos contratos.
+What the graph reveals at a glance:
+
+- **The hub is the email engine** — MailMKT concentrates 45 connections, because the cockpit touches throttle, dispatcher, outbox, tracking, and dashboard at once.
+- **Three principles run across the repos**: "absence is never zero", "analytics never blocks delivery", and "cascading gates" appear in documents from different systems without copying each other — the graph connects them by semantic similarity.
+- **The incident is the architecture**: the node of the 08/17 incident (three emails in one hour to a real lead) connects to the throttle, the dispatcher, and the outbox — the documented reason each of them exists.
+
+---
+
+## The thesis: why pieces, not a platform
+
+Closed marketing platforms sell the whole funnel at once: you pay for stages you do not use, you cannot audit the rules that govern your money, and you get locked in when the contract changes. This superpack starts from the opposite thesis:
+
+1. **Each funnel stage is a different problem** — auditing SEO is not nurturing leads, and nurturing leads is not attributing sales. Solving all six with a single product produces a product that is mediocre at all six.
+2. **The stages only need to meet at the contracts** — the LP needs to know what a click is (the tracklink defines it); the email needs to know who a lead is (the LP delivers it). Three contract tables solve this; no code coupling is required.
+3. **Auditability is the product** — the rules are prose you read and validators you run. "How do we know the throttle works?" has an answer: `npm test`, 107 tests.
+4. **Honesty is the brand** — absence is never zero, anti-fabrication beats a pretty page, and the limitations are written down in every repo. The graph even records the connections that do NOT exist (because the docs do not support them).
+
+If you want a one-afternoon funnel, assemble two pieces. If you want the operating system of your marketing, assemble all eight — the same discipline, the same visual standard, the same contracts.
 
 ---
 
 <p align="center">
-  <img src="assets/demo-funil.gif" alt="O funil animado — as seis peças se encaixando" width="560" /><br>
-  <sub>O funil, animado — as seis peças se encaixando (vídeo Higgsfield em loop; o .mp4 original está em assets/)</sub>
+  <img src="assets/demo-funil.gif" alt="The animated funnel — six pieces snapping together" width="560" /><br>
+  <sub>The funnel, animated — six pieces snapping together (Higgsfield video in loop; the original .mp4 lives in assets/)</sub>
 </p>
 
-## O funil em profundidade
+## The funnel in depth
 
-O funil não é uma sequência linear de ferramentas — é uma cadeia de **transferências de responsabilidade**, e cada transferência é um contrato. Entender onde uma peça termina e a outra começa é o que torna a montagem previsível.
+The funnel is not a linear sequence of tools — it is a chain of **responsibility transfers**, and every transfer is a contract. Understanding where one piece ends and the next begins is what makes assembly predictable.
 
-### Atrair — o tráfego entra
+### Attract — traffic enters
 
-Dois motores produzem tráfego orgânico: a auditoria **SEO/GEO** (o plugin claude-seo, que otimiza para busca clássica E para citação por IA — cada recomendação responde "como saberíamos que falhou?") e o **autoblog** (conteúdo editorial contínuo, gerado de fontes reais com gate de compliance em runtime). A responsabilidade deles termina no clique: **eles não convertem**. O blog atrai; quem converte é a página — e por isso o autoblog, por contrato, não emite tracking links: a atribuição pertence à próxima peça.
+Two engines produce organic traffic: the **SEO/GEO audit** (the claude-seo plugin, which optimizes for classic search AND for AI citation — every recommendation answers "how would we know it failed?") and the **autoblog** (continuous editorial content, generated from real sources with a compliance gate at runtime). Their responsibility ends at the click: **they do not convert**. The blog attracts; the page converts — and that is why the autoblog, by contract, does not emit tracking links: attribution belongs to the next piece.
 
-### Converter — o clique vira lead
+### Convert — the click becomes a lead
 
-A **LP engine** constrói a página de venda (seis modelos, quatro gates, anti-fabricação como regra suprema), e o **tracklink** é o dono do contrato de clique. No momento da publicação, a LP cria o link trackeado do CTA; quando o visitante converte, a página grava `firstTrackingClickId` no lead. A transferência de responsabilidade é dupla: a página entrega o lead para o funil, e entrega a **origem** do lead para a atribuição.
+The **LP engine** builds the sales page (six models, four gates, anti-fabrication as the supreme rule), and the **tracklink** owns the click contract. At publication time, the LP creates the tracked link for the CTA; when the visitor converts, the page records `firstTrackingClickId` on the lead. The responsibility transfer is double: the page delivers the lead to the funnel, and delivers the lead's **origin** to attribution.
 
-### Nutrir — o lead não esfria
+### Nurture — the lead does not go cold
 
-O **MailMKT** recebe o lead pelo contrato de intake e cuida da sequência de 25 dias sob um throttle compartilhado — um e-mail por lead por dia, garantido por 107 testes. Cada CTA do e-mail sai como um link `mailmkt-<slug>` do tracklink, então o nurture também atribui. O incidente que criou esta peça está documentado no repo: um lead real recebeu três e-mails em uma hora, e o throttle é a cicatriz que impede a repetição.
+**MailMKT** receives the lead through the intake contract and runs the 25-day sequence under a shared throttle — one email per lead per day, guaranteed by 107 tests. Every email CTA goes out as a `mailmkt-<slug>` tracklink, so nurture also attributes. The incident that created this piece is documented in the repo: a real lead received three emails in one hour, and the throttle is the scar that prevents repetition.
 
-### Vender — a conversa fecha
+### Sell — the conversation closes
 
-A **marIA** vende por WhatsApp (catálogo, cases, autoridade — a conversa é a landing page) e o **motor Empiricus** roda a esteira evergreen e as campanhas de lançamento com gate de compliance em runtime. O sistema de propostas gera a proposta por IA. A atribuição da venda vem do cookie da peça de tracking — a venda acontece na conversa, mas a resposta "de onde veio esse cliente" continua vindo do contrato do tracklink.
+**marIA** sells over WhatsApp (catalog, case studies, authority — the conversation is the landing page) and the **Empiricus engine** runs the evergreen track and launch campaigns with a compliance gate at runtime. The proposal system generates proposals by AI. Sale attribution comes from the cookie of the tracking piece — the sale happens in the conversation, but the answer to "where did this customer come from" still comes from the tracklink contract.
 
-### Amplificar — o alcance escala
+### Amplify — reach scales
 
-A **Social Machine V3.1** publica reels e stories no Instagram com planejamento editorial. Ela produz alcance; o funil converte nas peças anteriores. A ponte entre as duas é a observabilidade, não o tracking.
+**Social Machine V3.1** publishes reels and stories on Instagram with editorial planning. It produces reach; the funnel converts in the previous pieces. The bridge between the two is observability, not tracking.
 
-### Medir — o tempo todo
+### Measure — all the time
 
-O **ig-sentinel** lê quatro bancos Supabase em um cron diário e manda UM e-mail unificado — o estado do ecossistema em uma tela de inbox. O **contrato de métricas** do tracklink (janelas 7/30/90 calendar-filled, ausência ≠ zero) alimenta a dashboard unificada. Medir não é o último estágio do funil: é a camada que atravessa todos os outros.
+**ig-sentinel** reads four Supabase databases in one daily cron and sends ONE unified email — the ecosystem's state on a single inbox screen. The tracklink **metrics contract** (7/30/90 calendar-filled windows, absence ≠ zero) feeds the unified dashboard. Measuring is not the last stage of the funnel: it is the layer that crosses all the others.
 
 ---
 
-## As 8 peças, uma a uma
+## The 8 pieces, one by one
 
-### Peça 1 — SEO/GEO (Atrair)
+### Piece 1 — SEO/GEO (Attract)
 
-- **O que faz:** audita o site para busca clássica e busca por IA com um plugin de 25 sub-skills e 18 agentes especialistas. O diferencial declarado: **falsificabilidade** — cada recomendação carrega o critério de falha.
-- **Repo:** [`AgriciDaniel/claude-seo`](https://github.com/AgriciDaniel/claude-seo) (MIT, terceiro — referenciado, não forkado)
-- **Instalar:** `git clone https://github.com/AgriciDaniel/claude-seo.git`
-- **Plugar:** nenhuma dependência — é a porta de entrada. A conexão com o resto do funil é indireta: o gate de SEO da LP (metaTitle/metaDescription/JSON-LD) usa o mesmo padrão, e o conteúdo auditado é o que o autoblog publica.
-- **Imagem real:** o repo inclui GIFs de demo do plugin rodando no terminal e o gráfico de crescimento real do autor.
+- **What it does:** audits your site for classic search and AI search with a plugin of 25 sub-skills and 18 specialist agents. Its declared differentiator: **falsifiability** — every recommendation carries its own failure criterion.
+- **Repo:** [`AgriciDaniel/claude-seo`](https://github.com/AgriciDaniel/claude-seo) (MIT, third-party — referenced, not forked)
+- **Install:** `git clone https://github.com/AgriciDaniel/claude-seo.git`
+- **Plug:** no dependencies — it is the front door. The connection to the rest of the funnel is indirect: the LP's SEO gate (metaTitle/metaDescription/JSON-LD) uses the same pattern, and the audited content is what the autoblog publishes.
+- **Real imagery:** the repo includes demo GIFs of the plugin running in the terminal and the author's real growth chart.
 
-### Peça 2 — Autoblog (Atrair)
+### Piece 2 — Autoblog (Attract)
 
-- **O que faz:** conteúdo editorial autônomo — artigos gerados a partir de fontes reais, com compliance guard em runtime (mesmo padrão do gate do motor Empiricus). Referência viva no `cfgauss-site` (`app/api/cron/generate-article`).
-- **Plugar:** ig-sentinel (monitora falhas do autoblog por janela de 3 dias). Não emite tracking links — o blog atrai, a LP converte, e o contrato mantém essa fronteira explícita.
-- **Por que importa:** tráfego orgânico contínuo é o ativo mais barato do funil — mas só se alguém mede quando ele para de funcionar. O sentinel é esse alguém.
+- **What it does:** autonomous editorial content — articles generated from real sources, with a compliance guard at runtime (same pattern as the Empiricus engine's gate). Living reference in `cfgauss-site` (`app/api/cron/generate-article`).
+- **Plug:** ig-sentinel (monitors autoblog failures over a 3-day window). It does not emit tracking links — the blog attracts, the LP converts, and the contract keeps that boundary explicit.
+- **Why it matters:** continuous organic traffic is the cheapest asset in the funnel — but only if someone measures when it stops working. The sentinel is that someone.
 
-### Peça 3 — LP Engine (Converter)
+### Piece 3 — LP Engine (Convert)
 
-- **O que faz:** páginas de venda a partir de um brief ou de uma URL, com **6 modelos** (universal, curso, evento, captura, squeeze, lançamento), **4 gates** (estrutura, regras, contraste WCAG AA, SEO) e **anti-fabricação** como regra suprema — preço, prazo ou credencial que não está na fonte é omitido, nunca inventado.
+- **What it does:** sales pages from a brief or a URL, with **6 models** (universal, course, event, capture, squeeze, launch), **4 gates** (structure, rules, WCAG AA contrast, SEO) and **anti-fabrication** as the supreme rule — a price, deadline or credential that is not in the source is omitted, never invented.
 - **Repo:** [`luisroquette/My_LP_Makes_Neil_Proud`](https://github.com/luisroquette/My_LP_Makes_Neil_Proud)
-- **Instalar:** `git clone https://github.com/luisroquette/My_LP_Makes_Neil_Proud.git`
-- **Plugar:**
-  - → **Tracklink**: cada CTA publicado vira um link trackeado; o lead grava `firstTrackingClickId`/`lastTrackingClickId`.
-  - → **MailMKT**: o lead capturado entra no nurture pelo contrato de intake.
-- **Cláusula pétrea:** o formulário de captura tem 3 campos (nome + telefone + e-mail). Reduzir exige aprovação do dono — o funil inteiro depende de um lead alcançável por telefone.
-- **Imagem real:** o validator determinístico rodando no terminal (abaixo).
+- **Install:** `git clone https://github.com/luisroquette/My_LP_Makes_Neil_Proud.git`
+- **Plug:**
+  - → **Tracklink**: every published CTA becomes a tracked link; the lead records `firstTrackingClickId`/`lastTrackingClickId`.
+  - → **MailMKT**: the captured lead enters nurture through the intake contract.
+- **Bedrock clause:** the capture form has 3 fields (name + phone + email). Reducing it requires the owner's approval — the whole funnel depends on a lead reachable by phone.
+- **Real imagery:** the deterministic validator running in the terminal (below).
 
-![Validator da LP em ação](assets/terminal-lp.png)
+![LP validator in action](assets/terminal-lp.png)
 
-### Peça 4 — Tracklink UTM (Converter/Medir)
+### Piece 4 — Tracklink UTM (Convert/Measure)
 
-- **O que faz:** o dono do contrato de tracking — criação (slug `mailmkt-`/UTMs, destino query-free, anti-loop), clique (transacional, idempotente, `RETURNING (xmax = 0)`), atribuição (first/last click, camelCase no lead, snake_case na compra), saúde (SSRF-guard com revalidação por hop de redirect, detecção de bloqueio por datacenter) e métricas (7/30/90 calendar-filled).
+- **What it does:** the owner of the tracking contract — creation (`mailmkt-`/UTM slugs, query-free destinations, anti-loop), click (transactional, idempotent, `RETURNING (xmax = 0)`), attribution (first/last click, camelCase on the lead, snake_case on the purchase), health (SSRF guard with per-redirect-hop revalidation, datacenter-block detection) and metrics (7/30/90 calendar-filled).
 - **Repo:** [`luisroquette/My_UTMs_Make_Me_Proud`](https://github.com/luisroquette/My_UTMs_Make_Me_Proud)
-- **Instalar:** `git clone https://github.com/luisroquette/My_UTMs_Make_Me_Proud.git`
-- **Plugar:** LP (produtora de links), MailMKT (todo CTA), dashboard unificada (métricas). O núcleo é canal-agnóstico: cada canal novo é um diretório em `integracoes/` com seu mapa hostname→utm_source.
-- **Imagem real:** o validator com os 13 casos de regressão (abaixo).
+- **Install:** `git clone https://github.com/luisroquette/My_UTMs_Make_Me_Proud.git`
+- **Plug:** LP (link producer), MailMKT (every CTA), unified dashboard (metrics). The core is channel-agnostic: each new channel is a directory in `integracoes/` with its hostname→utm_source map.
+- **Real imagery:** the validator with the 13 regression cases (below).
 
 <p align="center">
-  <img src="assets/demo-tracking.gif" alt="O ciclo de tracking animado" width="560" /><br>
-  <sub>O ciclo de tracking, animado — o link atravessa o gate 302 até os destinos (vídeo Higgsfield em loop)</sub>
+  <img src="assets/demo-tracking.gif" alt="The tracking cycle, animated" width="560" /><br>
+  <sub>The tracking cycle, animated — the link crosses the 302 gate to its destinations (Higgsfield video in loop)</sub>
 </p>
 
-![Validator do tracklink em ação](assets/terminal-tracklink.png)
+![Tracklink validator in action](assets/terminal-tracklink.png)
 
-### Peça 5 — MailMKT (Nutrir)
+### Piece 5 — MailMKT (Nurture)
 
-- **O que faz:** o cockpit de e-mail — throttle compartilhado (1 e-mail/lead/dia + 20h), um cron só com dispatcher por prioridade, outbox durável (claim/lease, dead-letter 23h, fail-closed), piso de copy no salvar E no enviar, e a dashboard demo com 6 telas.
+- **What it does:** the email cockpit — shared throttle (1 email/lead/day + 20h floor), one cron with priority dispatcher, durable outbox (claim/lease, 23h dead-letter, fail-closed), copy floor at save AND at send, and the demo dashboard with 6 screens.
 - **Repo:** [`luisroquette/My_MailMKT_makes_Neil_Proud`](https://github.com/luisroquette/My_MailMKT_makes_Neil_Proud)
-- **Instalar:** `git clone https://github.com/luisroquette/My_MailMKT_makes_Neil_Proud.git` · demo: `cd dashboard && npm install && npm run dev`
-- **Plugar:** LP (intake de leads), Tracklink (CTAs `mailmkt-<slug>`), Resend/Supabase (adapters fiéis) — o núcleo é porta/adaptador, zero dependências.
-- **Imagens reais:** as quatro telas da dashboard demo (abaixo).
+- **Install:** `git clone https://github.com/luisroquette/My_MailMKT_makes_Neil_Proud.git` · demo: `cd dashboard && npm install && npm run dev`
+- **Plug:** LP (lead intake), Tracklink (`mailmkt-<slug>` CTAs), Resend/Supabase (faithful adapters) — the core is ports-and-adapters, zero dependencies.
+- **Real imagery:** the four screens of the demo dashboard (below).
 
 <p align="center">
-  <img src="assets/demo-cockpit.gif" alt="O cockpit animado" width="560" /><br>
-  <sub>O cockpit, animado — throttle, cinco motores e o calendário de colisões (vídeo Higgsfield em loop)</sub>
+  <img src="assets/demo-cockpit.gif" alt="The cockpit, animated" width="560" /><br>
+  <sub>The cockpit, animated — throttle, five motors and the collision calendar (Higgsfield video in loop)</sub>
 </p>
 
 <p align="center">
   <table>
     <tr>
-      <td align="center"><img src="assets/dashboard-hub.png" alt="Cockpit hub" width="380" /><br/><sub>Hub do cockpit</sub></td>
-      <td align="center"><img src="assets/dashboard-calendario.png" alt="Calendário de 14 dias" width="380" /><br/><sub>Calendário de 14 dias</sub></td>
+      <td align="center"><img src="assets/dashboard-hub.png" alt="Cockpit hub" width="380" /><br/><sub>Cockpit hub</sub></td>
+      <td align="center"><img src="assets/dashboard-calendario.png" alt="14-day calendar" width="380" /><br/><sub>14-day calendar</sub></td>
     </tr>
     <tr>
-      <td align="center"><img src="assets/dashboard-campanhas.png" alt="Campanhas" width="380" /><br/><sub>Campanhas</sub></td>
-      <td align="center"><img src="assets/dashboard-copy.png" alt="Editor de copy com o piso" width="380" /><br/><sub>Editor de copy com o piso</sub></td>
+      <td align="center"><img src="assets/dashboard-campanhas.png" alt="Campaigns" width="380" /><br/><sub>Campaigns</sub></td>
+      <td align="center"><img src="assets/dashboard-copy.png" alt="Copy editor with the floor" width="380" /><br/><sub>Copy editor with the floor</sub></td>
     </tr>
   </table>
 </p>
 
-### Peça 6 — Vendas com IA (Vender)
+### Piece 6 — AI Sales (Sell)
 
-- **O que faz:** marIA vende por WhatsApp (o catálogo e os cases são a conversa); o motor Empiricus roda a esteira evergreen (drip de conteúdo) e campanhas de lançamento com gate de compliance em runtime; o sistema de propostas gera propostas por IA.
-- **Onde mora:** referência viva no `cfgauss-site` (`lib/maria`, `lib/propostas`, motor Empiricus documentado em `docs/MOTOR-EMPIRICUS-CFGAUSS.md`).
-- **Plugar:** a plataforma de cursos própria. Nota honesta do grafo: o agente de vendas não menciona LP/tracking nos docs — a venda acontece na conversa; a atribuição vem do cookie do tracklink gravado na compra.
+- **What it does:** marIA sells over WhatsApp (the catalog and the case studies are the conversation); the Empiricus engine runs the evergreen track (content drip) and launch campaigns with a compliance gate at runtime; the proposal system generates proposals by AI.
+- **Where it lives:** living reference in `cfgauss-site` (`lib/maria`, `lib/propostas`, the Empiricus engine documented in `docs/MOTOR-EMPIRICUS-CFGAUSS.md`).
+- **Plug:** the in-house courses platform. Honest note from the graph: the sales agent does not name the LP/tracking in its docs — the sale happens in the conversation; attribution comes from the tracklink cookie recorded on the purchase.
 
-### Peça 7 — Amplificação Social (Amplificar)
+### Piece 7 — Social Amplification (Amplify)
 
-- **O que faz:** automação de Instagram — reels, stories, planejamento editorial e RADAR de conteúdo.
-- **Onde mora:** Social Machine V3.1 (`luisroquette/social-machine-v3.1`).
-- **Plugar:** ig-sentinel (monitora o IG). Produz alcance; o funil converte nas peças 3-5.
+- **What it does:** Instagram automation — reels, stories, editorial planning and content RADAR.
+- **Where it lives:** Social Machine V3.1 (`luisroquette/social-machine-v3.1`).
+- **Plug:** ig-sentinel (monitors IG). It produces reach; the funnel converts in pieces 3-5.
 
-### Peça 8 — ig-sentinel (Medir)
+### Piece 8 — ig-sentinel (Measure)
 
-- **O que faz:** observabilidade do ecossistema — um cron lê 4 bancos Supabase e manda UM e-mail diário unificado; o Doctor corrige automaticamente via webhook (protocolo de fix).
-- **Onde mora:** `luisroquette/ig-sentinel`.
-- **Plugar:** autoblog (conta falhas por janela), V3.1/SWEN/CF Gauss (estado do Instagram). É a peça que responde "o ecossistema está saudável?" em uma linha de e-mail por dia.
+- **What it does:** ecosystem observability — one cron reads 4 Supabase databases and sends ONE unified daily email; the Doctor fixes issues automatically via webhook (fix protocol).
+- **Where it lives:** `luisroquette/ig-sentinel`.
+- **Plug:** autoblog (counts failures per window), V3.1/SWEN/CF Gauss (Instagram state). It is the piece that answers "is the ecosystem healthy?" in one email line per day.
 
 ---
 
-## Os contratos: a parte LEGO de verdade
+## The contracts: the actual LEGO part
 
-As peças não se chamam por código — se referenciam por **contratos em Markdown**, cada um com um dono declarado. Quando dois contratos discordam, o dono vence. Esta tabela é o mapa de encaixe:
+The pieces do not call each other through code — they reference each other through **Markdown contracts**, each with a declared owner. When two contracts disagree, the owner wins. This table is the assembly map:
 
-| Contrato | Dono | Consumidores | Regra central |
+| Contract | Owner | Consumers | Central rule |
 |---|---|---|---|
-| O que é um clique, um lead e uma compra | Tracklink (`references/nucleo/`) | LP, MailMKT, dashboard | Transacional e idempotente: replay nunca conta duas vezes |
-| Formulário de captura (3 campos) | LP (cláusula pétrea) | MailMKT (intake) | Nome + telefone + e-mail — reduzir exige aprovação do dono |
-| Slug `mailmkt-<slug>` + UTMs | Tracklink (integração mailmkt) | MailMKT (todo CTA) | Um tracking link por ocorrência, nunca por lead |
-| Métricas 7/30/90 calendar-filled | Tracklink (`metricas.md`) | Dashboard unificada | Ausência ≠ zero — dia sem dado é zero explícito, não linha ausente |
-| Gate de publicação nunca contornado | LP | — | Valida ANTES de qualquer escrita |
-| Piso de copy no salvar E no enviar | MailMKT (`piso.ts`) | — | Copy reprovada cai no seed e loga — nunca sai |
-| Analytics nunca bloqueia entrega | os três repos | todos | Falha de métrica degrada e loga; o redirect é o produto |
-| Anti-fabricação acima de tudo | LP (regra suprema) | geração de conteúdo | Preço/prazo/credencial ausente da fonte é omitido, nunca inventado |
+| What a click, a lead and a purchase are | Tracklink (`references/nucleo/`) | LP, MailMKT, dashboard | Transactional and idempotent: replay never counts twice |
+| Capture form (3 fields) | LP (bedrock clause) | MailMKT (intake) | Name + phone + email — reducing it requires the owner's approval |
+| `mailmkt-<slug>` slug + UTMs | Tracklink (mailmkt integration) | MailMKT (every CTA) | One tracking link per occurrence, never per lead |
+| 7/30/90 calendar-filled metrics | Tracklink (`metricas.md`) | Unified dashboard | Absence ≠ zero — a day without data is an explicit zero, not a missing row |
+| Publication gate never bypassed | LP | — | Validates BEFORE any write |
+| Copy floor at save AND at send | MailMKT (`piso.ts`) | — | Rejected copy falls back to the seed and logs — it never ships |
+| Analytics never blocks delivery | the three repos | everyone | A metrics failure degrades and logs; the redirect is the product |
+| Anti-fabrication above everything | LP (supreme rule) | content generation | A price/deadline/credential absent from the source is omitted, never invented |
 
-**Por que contratos em Markdown e não SDKs?** Porque o consumidor pode ser qualquer stack — o contrato é prosa legível por humanos e por agentes, e o validador determinístico é a máquina que verifica. Nenhuma peça importa código de outra; todas leem o mesmo arquivo de regras. É isso que permite montar o funil com duas peças hoje e oito amanhã sem reescrever nada.
+**What a click is** is owned by the tracklink because the click is the currency of the whole funnel. If the LP counted clicks its own way and the email counted them another, the same money would be measured twice in two different languages. The contract fixes the vocabulary: one transactional, idempotent record — replaying an event never counts it twice.
 
----
+**The capture form** is a bedrock clause because the funnel's downstream pieces are all built on one assumption: a lead is reachable by phone. The nurture sequence, the WhatsApp seller and the human closer all need it. A form that only asks for email would silently change what a lead *is* — and that decision belongs to the business owner, not to a template.
 
-## Receitas: fluxos prontos de montagem
+**The `mailmkt-<slug>` convention** exists so that any email CTA is traceable at a glance: the slug prefix identifies the channel before you even open the link. One tracking link per occurrence — never reused across leads — is what makes first/last-click attribution honest instead of approximate.
 
-### Receita A — Funil completo (o ecossistema inteiro)
+**The metrics contract** is the least glamorous and the most important: a report that treats a failed read as a zero hides the moment your tracking pipeline died. Calendar-filled windows plus the absence-≠-zero rule mean a missing day is visible as a missing day, and that is the only way an operator finds a broken pipeline before the campaign ends.
 
-1. **Atrair:** clone o claude-seo e rode a auditoria no seu site; o autoblog publica conteúdo contínuo (referência no cfgauss-site).
-2. **Converter:** clone LP + Tracklink → crie a página (brief ou URL), plugue o tracking na publicação, valide com `validar-blueprint.py`.
-3. **Nutrir:** clone MailMKT → rode `npm test` (107 testes) → aponte o contrato de intake para os leads da LP → suba a demo (`cd dashboard && npm run dev`).
-4. **Vender:** marIA/Empiricus no WhatsApp e nas campanhas (referência viva no cfgauss-site).
-5. **Amplificar:** V3.1 publica reels/stories.
-6. **Medir:** ig-sentinel manda o e-mail diário; a dashboard unificada consome as métricas do tracklink + as queries do cockpit.
+**The publication gate** validates before any write because a published page is public: there is no "fix it later" for a page that already served a thousand visitors. The gate ordering is the contract — never the other way around.
 
-### Receita B — Só conversão (2 peças, ~30 minutos)
+**The copy floor at both points** exists because a gate that only runs in the editor can be bypassed by editing the database directly. Save-time keeps the editor honest; send-time keeps the pipeline honest.
 
-LP Engine + Tracklink. A página captura o lead E atribui a origem. Ideal para validar oferta antes de construir o funil inteiro.
+**Analytics never blocks delivery** because the redirect is the product: if recording the click fails, the visitor still lands on the page. A tracking system that can take down your conversion is a liability, not a feature — the failure degrades and logs instead.
 
-### Receita C — Só nutrição (1 peça, autocontida)
+**Anti-fabrication** is supreme because every other rule exists to protect trust, and a fabricated price destroys it in one pageview. When the source does not state it, the page does not state it — the omission is the feature.
 
-MailMKT com throttle, outbox e dashboard demo. Ideal para listas existentes que precisam de disciplina de envio.
-
-### Regra de expansão
-
-Adicione peças na ordem do funil, não na ordem do catálogo: só monte Nutrir depois que Converter produzir leads, e só monte Amplificar depois que o funil converter. O contrato de cada peça espera a anterior existindo.
+**Why Markdown contracts instead of SDKs?** Because the consumer can be any stack — the contract is prose readable by humans and agents alike, and the deterministic validator is the machine that verifies. No piece imports code from another; all of them read the same rules file. That is what allows assembling the funnel with two pieces today and eight tomorrow without rewriting anything.
 
 ---
 
-## O que o grafo revela
+## Recipes: ready-to-assemble flows
 
-- **O hub é o e-mail:** o MailMKT concentra ~45 conexões — o cockpit toca throttle, dispatcher, outbox, tracking e dashboard ao mesmo tempo.
-- **Três princípios atravessam os repos:** "ausência nunca é zero", "analytics nunca bloqueia entrega" e "gates em cascata" — o grafo os conecta por similaridade semântica entre documentos de sistemas diferentes.
-- **O incidente é a arquitetura:** o nó do incidente de 17/08 (três e-mails em uma hora) conecta-se ao throttle, ao dispatcher e ao outbox — o motivo documentado de cada um existir.
-- **As ausências também são informação:** o grafo registra as conexões que NÃO existem (autoblog não usa tracking; o agente de vendas não nomeia a LP) — porque a lapidação rejeitou arestas sem evidência nos docs. Um mapa honesto mostra o que não está conectado.
+### Recipe A — Full funnel (the entire ecosystem)
 
----
+1. **Attract:** clone claude-seo and run the audit on your site; the autoblog publishes continuous content (reference in cfgauss-site).
+2. **Convert:** clone LP + Tracklink → create the page (brief or URL), plug tracking at publication, validate with `validar-blueprint.py`.
+3. **Nurture:** clone MailMKT → run `npm test` (107 tests) → point the intake contract at the LP's leads → run the demo (`cd dashboard && npm run dev`).
+4. **Sell:** marIA/Empiricus on WhatsApp and campaigns (living reference in cfgauss-site).
+5. **Amplify:** V3.1 publishes reels/stories.
+6. **Measure:** ig-sentinel sends the daily email; the unified dashboard consumes the tracklink metrics + the cockpit queries.
 
-## Perguntas frequentes
+### Recipe B — Conversion only (2 pieces, ~30 minutes)
 
-**Por onde começo?** Pela Receita B — duas peças, meia hora, e você já tem conversão com atribuição. O funil inteiro é uma expansão natural.
+LP Engine + Tracklink. The page captures the lead AND attributes the origin. Ideal for validating an offer before building the whole funnel.
 
-**Preciso dos 8 repos para funcionar?** Não. Cada peça funciona sozinha; os contratos existem para quando você plugar as próximas.
+### Recipe C — Nurture only (1 piece, self-contained)
 
-**Posso usar só as skills e não o código?** Sim — as skills são a metodologia portável; os repos públicos (LP, Tracklink, MailMKT) são as implementações de referência com validadores e testes.
+MailMKT with throttle, outbox and demo dashboard. Ideal for existing lists that need send discipline.
 
-**O claude-seo é de terceiro — como entra no pacote?** Referenciado, não forkado: MIT, com o link e o crédito claros. Ele ocupa o estágio Atrair, que era o vazio do ecossistema.
+### The expansion rule
 
-**O que o grafo tem a ver com o manual?** O grafo é a prova de que as conexões do manual existem nos contratos — cada aresta tem uma frase de origem. O manual é a leitura humana; o grafo é o mapa navegável.
-
-**Posso contribuir com uma peça nova?** Sim — o padrão é: um repo com contratos em Markdown + validadores determinísticos + testes de regressão, e um plug que referencia os contratos existentes (veja `integracoes/` no tracklink para o template).
-
-**O que significa "ausência nunca é zero"?** Dia sem dados é zero explícito; dado ausente é ausente. Um relatório que confunde os dois esconde quando o tracking parou de funcionar — e o grafo mostra esse princípio nos três repos.
-
-**Por que o formulário de captura é uma cláusula pétrea?** Porque o funil inteiro depende de um lead alcançável por telefone — o nurture, o WhatsApp e o fechamento. Reduzir para "só e-mail" muda o que um lead É, e essa decisão é do dono do negócio, não de um template.
-
-**Quanto custa?** Tudo MIT, zero licenças, zero vendors. O custo real é o seu tempo de montagem — e as receitas dizem exatamente o que montar primeiro.
+Add pieces in funnel order, not catalog order: only assemble Nurture after Convert produces leads, and only assemble Amplify after the funnel converts. Each piece's contract expects the previous one to exist.
 
 ---
 
-## Roadmap do ecossistema
+## What the graph reveals
 
-**Agora — consolidação.** Os três repos próprios publicados e interoperando; o claude-seo referenciado no estágio Atrair; o grafo lapidado (10 rodadas) e o manual publicado.
-
-**Próximo — a dashboard unificada.** O contrato de métricas do tracklink + as queries documentadas do cockpit do MailMKT se encontram em uma tela: cliques por canal, leads por origem, envios por motor, saúde dos links.
-
-**Depois — peças novas.** Cada canal novo entra como integração do tracklink (template pronto); cada modelo novo de LP segue o checklist de 16 pontos; cada motor novo do MailMKT segue o checklist documentado.
-
-**Por fim — o grafo como produto.** O grafo cresce junto com os repos (o corpus é re-extraído a cada mudança de contrato) e vira o mapa oficial de qualquer novo consumidor do ecossistema.
+- **The hub is email:** MailMKT concentrates ~45 connections — the cockpit touches throttle, dispatcher, outbox, tracking and dashboard at the same time.
+- **Three principles cross the repos:** "absence is never zero", "analytics never blocks delivery" and "cascading gates" — the graph connects them by semantic similarity between documents from different systems.
+- **The incident is the architecture:** the 08/17 incident node (three emails in one hour) connects to the throttle, the dispatcher and the outbox — the documented reason each of them exists.
+- **Absences are information too:** the graph records the connections that do NOT exist (the autoblog does not use tracking; the sales agent does not name the LP) — because lapidation rejected edges without evidence in the docs. An honest map shows what is not connected.
 
 ---
 
-## Limitações honestas
+## Frequently asked questions
 
-- **marIA e V3.1 são referências vivas, não repos públicos** — o código mora no cfgauss-site e no social-machine-v3.1; os contratos públicos deles são os docs citados aqui.
-- **O grafo cobre os contratos, não o código inteiro** — 204 conceitos extraídos dos documentos; o código dos repos tem seus próprios grafos (o MailMKT tem o grafo do port; o cfgauss-site tem o grafo agêntico com 903 nós).
-- **Atribuição entre conversa e cookie** — o agente de vendas não nomeia o tracking nos docs; a ponte é o cookie gravado na compra. Documentado, não escondido.
-- **Este manual é uma foto de agosto de 2026** — o grafo se atualiza re-extraindo o corpus; o README se atualiza quando as peças mudam de versão.
+**Where do I start?** With Recipe B — two pieces, half an hour, and you already have conversion with attribution. The full funnel is a natural expansion.
+
+**Do I need all 8 repos to work?** No. Each piece works alone; the contracts exist for when you plug the next ones.
+
+**Can I use just the skills, not the code?** Yes — the skills are the portable methodology; the public repos (LP, Tracklink, MailMKT) are the reference implementations with validators and tests.
+
+**claude-seo is third-party — how does it enter the pack?** Referenced, not forked: MIT, with clear link and credit. It occupies the Attract stage, which was the ecosystem's gap.
+
+**What does the graph have to do with the manual?** The graph is the proof that the manual's connections exist in the contracts — every edge has a source sentence. The manual is the human reading; the graph is the navigable map.
+
+**Can I contribute a new piece?** Yes — the pattern is: a repo with Markdown contracts + deterministic validators + regression tests, and a plug that references the existing contracts (see `integracoes/` in the tracklink for the template).
+
+**What does "absence is never zero" mean?** A day without data is an explicit zero; a missing field is missing. A report that confuses the two hides the moment your tracking stopped working — and the graph shows this principle across the three repos.
+
+**Why is the capture form a bedrock clause?** Because the whole funnel depends on a lead reachable by phone — nurture, WhatsApp and closing. Reducing it to "email only" changes what a lead IS, and that decision belongs to the business owner, not to a template.
+
+**How much does it cost?** Everything is MIT, zero licenses, zero vendors. The real cost is your assembly time — and the recipes say exactly what to assemble first.
 
 ---
 
-## Licença
+## Ecosystem roadmap
 
-MIT — cada peça mantém sua própria licença (todas MIT). O claude-seo é MIT do autor original.
+**Now — consolidation.** The three in-house repos published and interoperating; claude-seo referenced at the Attract stage; the graph lapidated (10 rounds) and the manual published.
+
+**Next — the unified dashboard.** The tracklink metrics contract + the MailMKT cockpit's documented queries meet on one screen: clicks per channel, leads per origin, sends per motor, link health.
+
+**Later — new pieces.** Each new channel enters as a tracklink integration (template ready); each new LP model follows the 16-point checklist; each new MailMKT motor follows the documented checklist.
+
+**Finally — the graph as a product.** The graph grows with the repos (the corpus is re-extracted on every contract change) and becomes the official map for any new consumer of the ecosystem.
 
 ---
 
-## Tutorial de montagem, passo a passo
+## Honest limitations
 
-### Montando a Receita B (conversão) em 30 minutos
+- **marIA and V3.1 are living references, not public repos** — the code lives in cfgauss-site and social-machine-v3.1; their public contracts are the docs cited here.
+- **The graph covers the contracts, not all the code** — 204 concepts extracted from the documents; the repos' code has its own graphs (MailMKT has the port graph; cfgauss-site has the agentic graph with 903 nodes).
+- **Attribution between conversation and cookie** — the sales agent does not name tracking in its docs; the bridge is the cookie recorded on the purchase. Documented, not hidden.
+- **This manual is a snapshot of August 2026** — the graph updates by re-extracting the corpus; the README updates when the pieces change version.
 
-**Passo 1 — Clone as duas peças.**
+---
+
+## License
+
+MIT — each piece keeps its own license (all MIT). claude-seo is MIT by its original author.
+
+---
+
+## Step-by-step assembly tutorial
+
+### Assembling Recipe B (conversion) in 30 minutes
+
+**Step 1 — Clone the two pieces.**
 ```bash
 git clone https://github.com/luisroquette/My_LP_Makes_Neil_Proud.git
 git clone https://github.com/luisroquette/My_UTMs_Make_Me_Proud.git
 ```
 
-**Passo 2 — Valide as máquinas.** Cada repo tem um validador determinístico que você roda ANTES de usar — se o self-test falha, a máquina está quebrada:
+**Step 2 — Validate the machines.** Each repo ships a deterministic validator that you run BEFORE using it — if the self-test fails, the machine is broken:
 ```bash
 python3 My_LP_Makes_Neil_Proud/scripts/validar-blueprint.py --input My_LP_Makes_Neil_Proud/examples/example-briefing-input.json
 python3 My_UTMs_Make_Me_Proud/scripts/validar-tracking-link.py --self-test
 ```
-Dois "FORM VALID"/"SELF-TEST OK" significam que as peças estão íntegras.
+Two "FORM VALID"/"SELF-TEST OK" mean the pieces are intact.
 
-**Passo 3 — Crie a página.** No repo da LP, escreva um brief (oferta, público, modelo, objetivo — as cinco decisões rápidas são selects, não JSON) ou cole a URL de uma página existente. O blueprint resultante passa pelos quatro gates antes de publicar.
+**Step 3 — Create the page.** In the LP repo, write a brief (offer, audience, model, objective — the five quick decisions are selects, not JSON) or paste the URL of an existing page. The resulting blueprint passes the four gates before publishing.
 
-**Passo 4 — Plugar o tracking.** Na publicação, o contrato do tracklink entra em ação: o CTA da página vira um link trackeado com slug e UTMs, e o lead grava o first-click id. O plug v2.1.0 da LP referencia o contrato — você não escreve código de tracking, você cumpre o contrato.
+**Step 4 — Plug tracking.** At publication, the tracklink contract kicks in: the page's CTA becomes a tracked link with slug and UTMs, and the lead records the first-click id. The LP's v2.1.0 plug references the contract — you do not write tracking code, you fulfill the contract.
 
-**Passo 5 — Confira a atribuição.** O primeiro lead que converter carrega `firstTrackingClickId`. A resposta "de onde veio" agora é uma coluna, não uma opinião.
+**Step 5 — Check attribution.** The first lead that converts carries `firstTrackingClickId`. The answer to "where did this come from" is now a column, not an opinion.
 
-### Montando a Receita A (funil completo)
+### Assembling Recipe A (full funnel)
 
-A Receita A é a Receita B + quatro peças, na ordem do funil:
+Recipe A is Recipe B + four pieces, in funnel order:
 
-1. **Antes de converter, atraia** — rode o claude-seo no seu site (auditoria completa com os 32 comandos do plugin) e ligue o autoblog (referência: `cfgauss-site/app/api/cron/generate-article`). O sentinel passa a monitorar o autoblog.
-2. **Monte a conversão** (Receita B completa).
-3. **Plugar o nurture** — no repo do MailMKT: `npm install && npm test` (107 verdes), aponte o intake para os leads da LP, configure o throttle e os horários pela tela de regras da demo. Todo CTA do e-mail sai como `mailmkt-<slug>` automaticamente.
-4. **Plugar as vendas** — marIA e o motor Empiricus (referência viva no cfgauss-site). O cookie do tracklink grava a origem na compra.
-5. **Amplificar** — V3.1 para reels/stories; o sentinel monitora o IG.
-6. **Medir** — o e-mail diário do sentinel + a dashboard unificada (métricas do tracklink + queries do cockpit).
+1. **Before converting, attract** — run claude-seo on your site (full audit with the plugin's 32 commands) and turn on the autoblog (reference: `cfgauss-site/app/api/cron/generate-article`). The sentinel starts monitoring the autoblog.
+2. **Assemble conversion** (complete Recipe B).
+3. **Plug nurture** — in the MailMKT repo: `npm install && npm test` (107 green), point the intake at the LP's leads, configure throttle and schedules through the demo's rules screen. Every email CTA goes out as `mailmkt-<slug>` automatically.
+4. **Plug sales** — marIA and the Empiricus engine (living reference in cfgauss-site). The tracklink cookie records the origin on the purchase.
+5. **Amplify** — V3.1 for reels/stories; the sentinel monitors IG.
+6. **Measure** — the sentinel's daily email + the unified dashboard (tracklink metrics + cockpit queries).
 
-### Depois de montado: o que você ganha
+### Once assembled: what you gain
 
-- **Uma resposta por pergunta de relatório:** de onde veio o lead (first-click), quem fechou (last-click), quantos e-mails cada lead recebeu (throttle), quais links estão quebrados (saúde), se o autoblog parou (sentinel).
-- **Zero deploy para mudar regras:** cadência, horários, públicos e copy mudam por tela, não por commit.
-- **Garantias testáveis:** 107 testes no e-mail, 13 casos no tracking, gates na LP. Se algo regride, o teste falha.
-
----
-
-## Por que cada regra existe
-
-As regras dos contratos não são preferências — cada uma tem um incidente ou um risco documentado atrás dela. Esta seção é o "porquê" do manual:
-
-**Throttle de 1 e-mail/lead/dia.** Um lead real recebeu três e-mails em uma hora (lançamento 09:30, drip 10:01, mail mkt 10:30) porque cinco motores tinham cinco estados de throttle independentes. O fix — um estado compartilhado por rodada — é o coração do MailMKT, e um teste de regressão falha o build se as rotas antigas voltarem.
-
-**Gate no salvar E no enviar.** O piso de copy existia no editor, mas o envio não o consultava — copy editada direto no banco furaria o gate. O contrato exige os dois pontos porque a revisão achou o furo.
-
-**Dry mode sem efeito colateral.** O preview do dispatcher chegou a enviar e-mail real e a apagar reservas órfãs em modo de inspeção. A regra atual: dry não envia, não escreve tracking, não limpa nada — e um teste asserta isso.
-
-**Ausência nunca é zero.** Três bugs reais em três repos trataram dado ausente como zero: blocos da dashboard mostravam "0 enviados" quando a leitura tinha falhado. A regra existe porque um zero falso manda o operador procurar problema na campanha em vez do pipeline.
-
-**Anti-fabricação acima de tudo.** A extração de URL só monta o blueprint com o que existe na página — preço ausente é preço ausente. A regra é a suprema porque uma página bonita com preço inventado destrói a confiança que o funil inteiro precisa para converter.
-
-**Analytics nunca bloqueia entrega.** Se o registro do clique falhar, o visitante é redirecionado mesmo assim. A regra é absoluta porque um tracking que derruba o redirect derruba a conversão — o custo de um clique não medido é menor que o de um cliente perdido.
-
-**Fail-closed no outbox.** Timeout ou 5xx é ambíguo: o e-mail pode ter saído. A reserva é preservada e o e-mail nunca é reenviado na mesma rodada — duplicata é pior que lacuna, e o retry espera o mínimo de 20 horas.
-
-**Redirects re-validam a guarda SSRF.** Um destino público que redireciona para um IP privado contornaria a guarda se só o primeiro host fosse checado. A regra cobre o bypass, não só o caso feliz.
-
-**Renames não propagam.** Renomear um slug muda uma URL pública; links já emitidos mantêm o slug antigo. A regra é documentada (não escondida) para que os consumidores desenhem em torno dela — ferramentas que fingem migração automática produzem links quebrados em produção.
+- **One answer per report question:** where the lead came from (first-click), who closed (last-click), how many emails each lead received (throttle), which links are broken (health), whether the autoblog stopped (sentinel).
+- **Zero deploys to change rules:** cadence, schedules, audiences and copy change through screens, not commits.
+- **Testable guarantees:** 107 tests in email, 13 cases in tracking, gates in the LP. If something regresses, the test fails.
 
 ---
 
-## Solução de problemas
+## Why each rule exists
 
-**A LP publica mas o CTA não é trackeado** — o plug do tracklink não foi cumprido: confira se o contrato de publicação (`references/publicacao/contrato-tracklink.md`) está referenciado e se o link foi criado com o validador.
+The contract rules are not preferences — each one has a documented incident or risk behind it. This section is the manual's "why":
 
-**O lead recebeu dois e-mails no mesmo dia** — impossível por construção, então algo furou: confira se o throttle foi carregado DEPOIS da limpeza de reservas órfãs (inverter a ordem libera um lead bloqueado) ou se o e-mail saiu por uma rota antiga (o teste de regressão cobre isso).
+**1 email/lead/day throttle.** A real lead received three emails in one hour (launch 09:30, drip 10:01, mail mkt 10:30) because five motors had five independent throttle states. The fix — one shared state per round — is the heart of MailMKT, and a regression test fails the build if the old routes return.
 
-**A dashboard mostra zero enviados mas o cron rodou** — leitura que falha é `null`, nunca zero. Um zero real significa rodada sem candidatos; um `null` significa leitura quebrada. A distinção é o contrato.
+**Gate at save AND at send.** The copy floor existed in the editor, but the sender never consulted it — copy edited directly in the database would pierce the gate. The contract demands both points because the review found the hole.
 
-**O autoblog parou de publicar** — o e-mail diário do sentinel deve mostrar o status; se não mostrou, o monitor não cobre o cron (confira a janela de 3 dias do relatório).
+**Dry mode with zero side effects.** The dispatcher's preview once sent a real email and deleted orphan reservations in inspection mode. The current rule: dry sends nothing, writes no tracking, cleans nothing — and a test asserts it.
 
-**O clique não conta no relatório** — confira se foi HEAD/prefetch (não contam por contrato), se o link está em loop `/t/` (o validador rejeita na criação) ou se o agregado foi incrementado fora da transação (a regra é `RETURNING (xmax = 0)`).
+**Absence is never zero.** Three real bugs in three repos treated missing data as zero: dashboard blocks showed "0 sent" when the read had failed. The rule exists because a false zero sends the operator hunting for a problem in the campaign instead of in the pipeline.
 
-**O grafo não abre** — baixe o `assets/grafo-marketing-4.0.html` (não abra pelo preview do GitHub) e abra localmente no navegador.
+**Anti-fabrication above everything.** URL extraction builds the blueprint only from what exists on the page — a missing price is a missing price. The rule is supreme because a pretty page with an invented price destroys the trust the entire funnel needs to convert.
+
+**Analytics never blocks delivery.** If click recording fails, the visitor is redirected anyway. The rule is absolute because a tracking system that drops the redirect drops the conversion — the cost of an unmeasured click is lower than the cost of a lost customer.
+
+**Fail-closed outbox.** A timeout or 5xx is ambiguous: the email may have gone out. The reservation is preserved and the email is never resent in the same round — a duplicate is worse than a gap, and the retry waits the 20-hour floor.
+
+**Redirects re-validate the SSRF guard.** A public destination that redirects to a private IP would bypass the guard if only the first host were checked. The rule covers the bypass, not just the happy path.
+
+**Renames do not propagate.** Renaming a slug changes a public URL; links already issued keep the old slug. The rule is documented (not hidden) so consumers design around it — tools that pretend to migrate automatically produce broken links in production.
 
 ---
 
-## As peças contra o mercado
+## Troubleshooting
 
-Para cada estágio, o que o mercado vende e o que a peça entrega:
+**The LP publishes but the CTA is not tracked** — the tracklink plug was not fulfilled: check that the publication contract (`references/publicacao/contrato-tracklink.md`) is referenced and that the link was created with the validator.
 
-| Estágio | Mercado | A peça |
+**A lead received two emails on the same day** — impossible by construction, so something pierced it: check whether the throttle was loaded AFTER the orphan-reservation cleanup (inverting the order frees a blocked lead) or whether the email left through an old route (the regression test covers this).
+
+**The dashboard shows zero sent but the cron ran** — a failed read is `null`, never zero. A real zero means a round without candidates; a `null` means a broken read. The distinction is the contract.
+
+**The autoblog stopped publishing** — the sentinel's daily email should show the status; if it did not, the monitor does not cover the cron (check the report's 3-day window).
+
+**The click does not count in the report** — check whether it was HEAD/prefetch (excluded by contract), whether the link loops through `/t/` (the validator rejects at creation) or whether the counter was incremented outside the transaction (the rule is `RETURNING (xmax = 0)`).
+
+**The graph does not open** — download `assets/grafo-marketing-4.0.html` (do not open it through GitHub's preview) and open it locally in the browser.
+
+---
+
+## The pieces vs the market
+
+For each stage, what the market sells and what the piece delivers:
+
+| Stage | The market | The piece |
 |---|---|---|
-| Atrair | Auditorias SEO de R$ 5-10k/mês, relatório em PDF | claude-seo: auditoria executável com falsificabilidade — cada recomendação diz como saber que falhou |
-| Atrair | Gerador de artigo com copy genérica | Autoblog com gate de compliance em runtime e monitoramento próprio |
-| Converter | Builders de página fechados, sem contrato | LP engine com 6 modelos, 4 gates e anti-fabricação — a página é auditável |
-| Converter/Medir | Planilha de UTMs mantida à mão | Tracklink com validator de 13 casos — o link é o contrato |
-| Nutrir | Plataforma de e-mail com regras invisíveis | MailMKT com throttle, outbox e piso — 107 testes que você roda |
-| Vender | Follow-up manual no WhatsApp | marIA/Empiricus — a conversa é a landing page, com gate de compliance |
-| Amplificar | Agência de social media | V3.1 com planejamento editorial autônomo e sentinel observando |
-| Medir | Relatório mensal do funil | Contratos de métricas calendar-filled + e-mail diário do sentinel |
+| Attract | R$ 5-10k/month SEO audits, PDF report | claude-seo: executable audit with falsifiability — every recommendation says how you would know it failed |
+| Attract | Article generator with generic copy | Autoblog with runtime compliance gate and its own monitoring |
+| Convert | Closed page builders, no contract | LP engine with 6 models, 4 gates and anti-fabrication — the page is auditable |
+| Convert/Measure | A UTM spreadsheet maintained by hand | Tracklink with a 13-case validator — the link is the contract |
+| Nurture | Email platform with invisible rules | MailMKT with throttle, outbox and floor — 107 tests you can run |
+| Sell | Manual follow-up on WhatsApp | marIA/Empiricus — the conversation is the landing page, with a compliance gate |
+| Amplify | A social media agency | V3.1 with autonomous editorial planning and the sentinel watching |
+| Measure | A monthly funnel report | Calendar-filled metric contracts + the sentinel's daily email |
 
-A diferença não é preço (tudo é MIT) — é **auditabilidade**. Numa plataforma, a regra que governa seu dinheiro é invisível. Aqui, a regra é um arquivo Markdown que você lê e um teste que você roda.
-
----
-
-## Um dia na operação do funil completo
-
-Às 09:00, o cron do sentinel lê os quatro bancos e monta o e-mail diário. Às 10:00, o dispatcher do MailMKT pergunta à agenda quem é da hora: o mail mkt e a esteira estão devidos, e o throttle compartilhado garante que nenhum lead receba mais de um e-mail — mesmo com dois motores na mesma rodada. Um lead clica no CTA do e-mail: o tracking link registra o clique transacionalmente e o redireciona para a LP em milissegundos. Na LP, ele converte: o lead grava o first-click id e entra no intake do nurture. À tarde, a marIA conversa com um lead no WhatsApp e fecha — a compra grava o last-click id. À noite, o autoblog publica o artigo do dia e o V3.1 sobe um reel. Amanhã, o e-mail do sentinel resume tudo em uma tela: envios, falhas, publicações, alertas.
-
-Nenhuma etapa desse dia exigiu um deploy. Cadência, horários, públicos e copy mudam por tela; as regras mudam por contrato com teste; e cada número do relatório tem uma linha de origem no grafo.
+The difference is not price (everything is MIT) — it is **auditability**. On a platform, the rule that governs your money is invisible. Here, the rule is a Markdown file you read and a test you run.
 
 ---
 
-## A história do ecossistema
+## A day operating the full funnel
 
-O superpack não foi desenhado de cima — foi **extraído** de um sistema de produção, peça por peça, em agosto de 2026:
+At 09:00, the sentinel's cron reads the four databases and assembles the daily email. At 10:00, the MailMKT dispatcher asks the agenda who is due: mail mkt and the evergreen track are both up, and the shared throttle guarantees no lead receives more than one email — even with two motors in the same round. A lead clicks the email's CTA: the tracking link records the click transactionally and redirects to the LP in milliseconds. On the LP, they convert: the lead records the first-click id and enters the nurture intake. In the afternoon, marIA talks to a lead on WhatsApp and closes — the purchase records the last-click id. At night, the autoblog publishes the day's article and V3.1 posts a reel. Tomorrow, the sentinel's email summarizes everything on one screen: sends, failures, publications, alerts.
 
-1. **O incidente.** Um lead real recebe três e-mails em uma hora. A investigação descobre cinco motores com cinco throttles independentes — e o cockpit (throttle compartilhado, um cron, outbox) nasce como o fix.
-2. **A extração.** Cada sistema de produção vira uma skill pública com contratos em Markdown e validadores determinísticos: primeiro o tracking (v1.0.0), depois a LP (v2.1.0 com o plug do tracking), depois o e-mail (v2.0.0 com o cockpit completo).
-3. **A lapidação.** Cada repo passa por rodadas de revisão adversária — 36 achados no MailMKT, 11 no tracklink, 9 na LP — com teste de regressão para cada bug class, e o critério de duas rodadas consecutivas limpas antes de publicar.
-4. **O grafo.** Os contratos dos repos viram corpus, o graphify extrai 204 conceitos e ~405 conexões, e dez rodadas de lapidação deduplicam e validam cada aresta contra evidência textual.
-5. **O manual.** Este README — a leitura humana do grafo, com as peças, os plugs e as receitas.
-
-A ordem importa: o sistema existia antes do produto, os contratos antes do manual, e o grafo antes do mapa. Por isso cada afirmação deste README tem uma origem nos repos — e as ausências também são documentadas.
+No step of that day required a deploy. Cadence, schedules, audiences and copy change through screens; the rules change through a contract with a test; and every number in the report has a source line in the graph.
 
 ---
 
-## Guia rápido de quem mantém
+## The ecosystem's story
 
-**Você é o dono da operação e quer saber o que observar:**
+The superpack was not designed top-down — it was **extracted** from a production system, piece by piece, in August 2026:
 
-- **Toda segunda-feira:** leia o e-mail do sentinel (a semana inteira em uma tela). Zero achados é o normal — o alerta existe para quando não for.
-- **Toda mudança de copy:** rode o piso antes de salvar (o editor já faz isso) e confira o gate no envio.
-- **Todo relatório mensal:** confie nas janelas calendar-filled do tracklink; se um dia está ausente (não zero), o tracking parou — investigue o pipeline antes da campanha.
-- **Toda regra nova:** escreva o contrato primeiro, o teste junto, e rode o self-test. A regra do repo é: fix e regressão no mesmo commit.
+1. **The incident.** A real lead receives three emails in one hour. The investigation finds five motors with five independent throttles — and the cockpit (shared throttle, one cron, outbox) is born as the fix.
+2. **The extraction.** Each production system becomes a public skill with Markdown contracts and deterministic validators: first tracking (v1.0.0), then the LP (v2.1.0 with the tracking plug), then email (v2.0.0 with the full cockpit).
+3. **The lapidation.** Each repo goes through adversarial review rounds — 36 findings in MailMKT, 11 in tracklink, 9 in the LP — with a regression test for every bug class, and the criterion of two consecutive clean rounds before publishing.
+4. **The graph.** The repos' contracts become a corpus, graphify extracts 204 concepts and ~405 connections, and ten lapidation rounds deduplicate and validate every edge against textual evidence.
+5. **The manual.** This README — the human reading of the graph, with the pieces, the plugs and the recipes.
 
-**Você é desenvolvedor e quer plugar uma peça nova:**
-
-1. Leia o contrato do dono (ex.: `references/nucleo/` do tracklink).
-2. Crie o diretório de integração (o template `modelo-nova-integracao.md` está pronto).
-3. Escreva o validador para a sua forma de link/página/campanha.
-4. Abra um PR — o bar de entrada é o teste de regressão no mesmo commit.
+The order matters: the system existed before the product, the contracts before the manual, and the graph before the map. That is why every claim in this README has an origin in the repos — and the absences are documented too.
 
 ---
 
-## As imagens e vídeos deste repo
+## Maintainer quick guide
 
-Todas as imagens de produto são **capturas reais dos sistemas** (terminal rodando os validadores; as quatro telas da dashboard demo). As capas e os vídeos são gerados por IA no padrão visual CF Gauss (fundo `#1A1524`, roxo `#7B2FBE`, lilás `#C9A7FF`, as três ondas da logo) — os vídeos com o FLUX 3 Video e as capas com gpt-image-2. Os vídeos entram neste README como **GIFs em loop**, porque o GitHub não renderiza a tag `<video>` — os `.mp4` originais continuam em `assets/` para quem quiser baixar. O grafo é o artefato mais honesto do repo: cada aresta tem uma frase de origem nos documentos.
+**You run the operation and want to know what to watch:**
+
+- **Every Monday:** read the sentinel's email (the whole week on one screen). Zero findings is normal — the alert exists for when it is not.
+- **Every copy change:** run the floor before saving (the editor already does this) and check the gate at send.
+- **Every monthly report:** trust the tracklink's calendar-filled windows; if a day is absent (not zero), tracking stopped — investigate the pipeline before the campaign.
+- **Every new rule:** write the contract first, the test alongside, and run the self-test. The repo rule is: fix and regression in the same commit.
+
+**You are a developer and want to plug a new piece:**
+
+1. Read the owner's contract (e.g., the tracklink's `references/nucleo/`).
+2. Create the integration directory (the `modelo-nova-integracao.md` template is ready).
+3. Write the validator for your link/page/campaign shape.
+4. Open a PR — the bar is the regression test in the same commit.
 
 ---
 
-## Por que confiar no grafo
+## Security model
 
-Um mapa de marketing normalmente é um slide bonito desenhado por um consultor. Este grafo é diferente em três pontos:
+The pieces were extracted from a production system, and their security posture is part of the contract:
 
-1. **Extraído, não desenhado.** Os 204 nós vêm da extração semântica dos próprios documentos dos repos — cada nó tem um arquivo de origem e cada aresta tem uma frase que a sustenta. Nenhuma aresta foi adicionada sem evidência; as que não tinham foram rejeitadas em dez rodadas de lapidação.
-2. **Lapidado com critério de convergência.** Cada rodada de revisão procurou duplicados, órfãos, arestas sem sustentação e conexões faltantes — e o loop só parou quando duas rodadas consecutivas não acharam nada. Os artefatos de cada rodada (`.lapidacao_r1.json` a `.lapidacao_r10.json`) são o audit trail do processo.
-3. **Honesto sobre as ausências.** O grafo registra o que NÃO está conectado: o autoblog não usa tracking, o agente de vendas não nomeia a LP, o sentinel não cobre o e-mail. Um mapa que só mostra conexões te manda procurar integração onde ela não existe; este te mostra a fronteira real de cada peça.
+- **SSRF guard with per-hop revalidation** — the tracking link validates the destination host, and re-validates on every redirect hop, so a public URL that redirects to a private IP does not turn the tracker into an internal-network proxy.
+- **Loop rejection at creation** — a link whose destination loops back into `/t/` is rejected by the validator before it ever exists.
+- **Idempotent, transactional clicks** — the counter increments inside the same transaction that writes the click (`RETURNING (xmax = 0)`), so a replayed event can never double-count a conversion.
+- **Fail-closed outbox** — an ambiguous failure (timeout/5xx) preserves the reservation instead of resending: duplicates are worse than gaps.
+- **Dry mode with zero side effects** — inspection modes cannot send, write tracking or clean state; a test asserts each one.
+- **Runtime compliance gates** — the Empiricus engine and the autoblog validate their output at runtime, not only at authoring time; a guard that only runs in the editor can be bypassed by the database.
+- **Least-privilege database adapters** — the Supabase adapter ships with explicit `REVOKE`/`GRANT` RPCs, so the application role gets the surface it needs and nothing else.
+
+The posture in one line: every external call is validated, every write is transactional, and every failure mode has a defined behavior — the tests are the proof.
 
 ---
 
-## Comparativo de montagem
+## What it costs to run
 
-| Receita | Peças | Tempo estimado | O que você ganha |
+The pack is MIT, but "free" and "zero cost" are different claims. Here is the honest breakdown:
+
+- **Licenses:** zero. All pieces are MIT; no per-seat fees, no vendor lock-in.
+- **Runtime:** whatever your infrastructure already costs. The cockpit and the tracking layer need a Postgres (Supabase works, including its free tier) and an email provider behind the Resend-style adapter. The LP runs on any host (the reference uses Vercel). The dashboard demo runs entirely on your machine with mocked data.
+- **AI generation:** only if you use it — the LP models and the email copy can be written by hand; the AI is an accelerator, not a dependency.
+- **The real cost is time:** each recipe states its assembly estimate, and the contracts exist so that plugging a piece is reading, not reverse-engineering.
+
+Nothing in this pack charges you. What it demands is discipline: read the contract, run the validator, keep the test green.
+
+---
+
+## Migrating from a closed platform
+
+Moving an existing operation into the ecosystem, piece by piece:
+
+1. **Export your list first** — a CSV of leads with name, phone and email fits the intake contract as-is. The capture-form bedrock clause is the shape your data must match, not the shape of someone else's template.
+2. **Start with Recipe C (nurture)** if your list is your biggest asset — the throttle and the outbox improve send discipline from day one, and the dashboard demo shows the cockpit without touching your current platform.
+3. **Then Recipe B (conversion)** — new pages go through the LP + tracklink from day one, so new leads arrive already attributed while old traffic keeps running on the old stack.
+4. **Keep the closed platform during the transition** — the expansion rule is funnel order, not big-bang. The pieces interoperate by contract, so nothing forces a cutover date.
+5. **Compare honestly** — the 7/30/90 metrics contract gives you the same calendar on both sides; the first report that shows the difference is your migration report.
+
+The trap to avoid is re-implementing the closed platform inside the new stack. The pack's thesis is the opposite: each piece does one stage, and the contracts are the only place they touch.
+
+---
+
+## Images and videos in this repo
+
+Every product image is a **real capture of the systems** (terminals running the validators; the four demo dashboard screens). The covers and videos are AI-generated in the CF Gauss visual standard (`#1A1524` background, `#7B2FBE` purple, `#C9A7FF` lilac, the three logo waves) — the videos with Higgsfield FLUX 3 Video and the covers with gpt-image-2. The videos enter this README as **looping GIFs** because GitHub does not render the `<video>` tag — the original `.mp4` files remain in `assets/` for download. The graph is the repo's most honest artifact: every edge has a source sentence in the documents.
+
+---
+
+## Why trust the graph
+
+A marketing map is usually a pretty slide drawn by a consultant. This graph is different on three counts:
+
+1. **Extracted, not drawn.** The 204 nodes come from semantic extraction of the repos' own documents — every node has a source file and every edge has a supporting sentence. No edge was added without evidence; those without any were rejected across ten lapidation rounds.
+2. **Lapidated with a convergence criterion.** Every review round hunted for duplicates, orphans, unsupported edges and missing connections — and the loop only stopped when two consecutive rounds found nothing. Each round's artifacts (`.lapidacao_r1.json` through `.lapidacao_r10.json`) are the process's audit trail.
+3. **Honest about absences.** The graph records what is NOT connected: the autoblog does not use tracking, the sales agent does not name the LP, the sentinel does not cover email. A map that only shows connections sends you hunting for an integration that does not exist; this one shows the real boundary of each piece.
+
+---
+
+## Assembly comparison
+
+| Recipe | Pieces | Estimated time | What you gain |
 |---|---|---|---|
-| C — Nutrição | 1 | 1 hora (clone + testes + demo) | Disciplina de envio com throttle e outbox |
-| B — Conversão | 2 | ~30 minutos a 1 tarde | Página que converte E atribui |
-| A — Funil completo | 8 | 1-2 semanas, na ordem do funil | O sistema de marketing inteiro, auditável |
+| C — Nurture | 1 | 1 hour (clone + tests + demo) | Send discipline with throttle and outbox |
+| B — Conversion | 2 | ~30 minutes to 1 afternoon | A page that converts AND attributes |
+| A — Full funnel | 8 | 1-2 weeks, in funnel order | The entire marketing system, auditable |
 
-Os tempos são de montagem, não de aprendizado — cada repo tem seu README com o ciclo completo e os contratos. O aprendizado real é ler os contratos uma vez; depois, operar é tela e e-mail diário.
-
----
-
-## Perguntas frequentes: edição estendida
-
-**O funil funciona sem o claude-seo?** Sim — ele é a peça de aquisição orgânica; você pode começar com tráfego pago ou listas existentes. O estágio Atrair só precisa de UM motor para o funil rodar.
-
-**Por que o autoblog não emite tracking links?** Porque a fronteira do funil é o clique que converte. O blog atrai e educa; a LP converte e atribui. Emitir tracking no blog misturaria duas responsabilidades e inflaria o primeiro clique com tráfego que nunca converte. A ausência da aresta no grafo é a documentação dessa decisão.
-
-**E se eu quiser um canal novo (WhatsApp, ads)?** O template `modelo-nova-integracao.md` do tracklink define o padrão: um diretório por canal, o mapa hostname→utm_source, e o contrato referenciado — o núcleo não muda. Ads e WhatsApp são os próximos da fila do roadmap.
-
-**O que acontece quando um contrato muda?** O dono do contrato muda o Markdown, o validador ganha a regra nova com teste de regressão no mesmo commit, e os consumidores veem a mudança no diff do repo do dono. Nada quebra em silêncio — o teste do consumidor falha se o contrato mudou de forma incompatível.
-
-**Por que os testes de regressão são obrigatórios e não opcionais?** Porque a memória de um sistema de produção é curta: um fix aplicado hoje pode ser removido inadvertidamente amanhã. O único guardião permanente é um teste que quebra o build. Cada bug class deste ecossistema — do XSS no render ao dry que enviava e-mail — tem seu teste, no mesmo commit do fix.
-
-**O grafo serve para quê além de navegar?** Ele é o mapa de onboarding de qualquer pessoa nova no ecossistema (responda "como as peças se relacionam" apontando para o grafo), o audit trail das decisões de conexão (cada aresta tem origem), e a base da dashboard unificada (as comunidades são os módulos da tela).
-
-**Este repo substitui os outros?** Não — é o índice e o manual. Os repos continuam donos dos contratos e do código; este repo referencia. O padrão é o mesmo do ecossistema: o dono vence, os consumidores referenciam.
-
-**Como o padrão visual funciona nos três repos?** O CF Gauss Visual Standard (fundo `#1A1524`, roxo `#7B2FBE`, lilás `#C9A7FF`, Inter, a logo das três ondas) está gravado e aplicado em capas, terminais, dashboards e READMEs — qualquer peça futura herda o padrão.
-
-**Posso comercializar serviços em cima?** Sim — o superpack é MIT. O que o ecossistema vende é a disciplina: auditoria, montagem e operação do funil. O software é o veículo; o contrato é o produto.
+The times are assembly times, not learning times — each repo has its own README with the full cycle and the contracts. The real learning is reading the contracts once; after that, operating is screens and one daily email.
 
 ---
 
-## A última palavra
+## FAQ: extended edition
 
-Marketing 4.0 não é uma coleção de ferramentas — é uma disciplina de montagem. Cada peça deste pacote resolve um problema real do funil com um contrato auditável; cada plug entre peças é uma frase que você pode ler; e cada número do relatório tem uma linha de origem que o grafo aponta. O ecossistema funciona porque as peças respeitam o padrão: o dono define, os consumidores referenciam, os validadores verificam e os testes lembram.
+**Does the funnel work without claude-seo?** Yes — it is the organic-acquisition piece; you can start with paid traffic or existing lists. The Attract stage needs only ONE engine for the funnel to run.
 
-Se você montar só uma peça, ela funciona sozinha. Se montar as oito, você tem um sistema de marketing inteiro que cabe num e-mail diário, numa tela de dashboard e num grafo navegável — e que responde, com número e não com opinião, a única pergunta que importa: **de onde veio a venda, e quanto custou chegar até ela.**
+**Why does the autoblog not emit tracking links?** Because the funnel's boundary is the converting click. The blog attracts and educates; the LP converts and attributes. Emitting tracking from the blog would mix two responsibilities and inflate first-click with traffic that never converts. The edge's absence in the graph is the documentation of that decision.
 
-Monte peça por peça. Os contratos são o encaixe; os testes são a garantia; o grafo é o mapa.
+**What if I want a new channel (WhatsApp, ads)?** The tracklink's `modelo-nova-integracao.md` template defines the pattern: one directory per channel, the hostname→utm_source map, and the referenced contract — the core does not change. Ads and WhatsApp are next in the roadmap.
+
+**What happens when a contract changes?** The contract owner changes the Markdown, the validator gains the new rule with a regression test in the same commit, and consumers see the change in the owner's repo diff. Nothing breaks silently — the consumer's test fails if the contract changed incompatibly.
+
+**Why are regression tests mandatory, not optional?** Because a production system's memory is short: a fix applied today can be removed inadvertently tomorrow. The only permanent guardian is a test that breaks the build. Every bug class in this ecosystem — from the render XSS to the dry mode that sent emails — has its test, in the same commit as the fix.
+
+**What is the graph for, besides navigation?** It is the onboarding map for anyone new to the ecosystem (answer "how do the pieces relate" by pointing at the graph), the audit trail of connection decisions (every edge has an origin), and the base of the unified dashboard (the communities are the screen's modules).
+
+**Does this repo replace the others?** No — it is the index and the manual. The repos remain the owners of their contracts and code; this repo references. The pattern is the ecosystem's own: the owner wins, consumers reference.
+
+**How does the visual standard work across the three repos?** The CF Gauss Visual Standard (`#1A1524` background, `#7B2FBE` purple, `#C9A7FF` lilac, Inter, the three-wave logo) is saved and applied to covers, terminals, dashboards and READMEs — any future piece inherits the pattern.
+
+**Can I commercialize services on top?** Yes — the superpack is MIT. What the ecosystem sells is discipline: auditing, assembling and operating the funnel. The software is the vehicle; the contract is the product.
+
+**Is this a framework I must adopt entirely?** No — every piece is independently useful. The tracking validator alone replaces a spreadsheet; the LP validator alone audits your pages; the cockpit alone disciplines an existing list. The superpack only adds the map between them.
+
+**How do I know the numbers in the README are real?** Each claim traces to a repo: 107 tests (`npm test` in MailMKT), 13 regression cases (the tracklink self-test), 204 nodes / ~405 edges (the graph artifact in `assets/`). The manual follows the same rule the pieces follow: what cannot be verified is not claimed.
+
+---
+
+## Community and contributing
+
+The ecosystem's extension pattern is open:
+
+1. **A new piece** is a repo with Markdown contracts (owner declared) + deterministic validators + regression tests, plus a plug that references the existing contracts — the tracklink's `integracoes/` directory is the template.
+2. **A new integration** for the tracklink is a directory with the channel's hostname→utm_source map and a validator for the link shape — the core never changes.
+3. **A new LP model** follows the 16-point checklist; **a new MailMKT motor** follows the documented checklist in its repo.
+4. **The PR bar** is the regression test in the same commit — fixes without tests are the only hard rejection.
+5. **Contract disputes** resolve by ownership: the contract's declared owner wins, and the disagreement is documented in the diff, not in a thread.
+
+The graph is the review surface: new contracts are re-extracted into the corpus, and lapidation re-validates the edges. A change that breaks a documented connection shows up as a rejected edge with a source sentence.
+
+---
+
+## Changelog
+
+- **v1.0.0 — Tracklink (My_UTMs_Make_Me_Proud):** the tracking contract extracted as a public skill — core channel-agnostic, validators with 13 regression cases, first/last-click attribution, SSRF-guarded health.
+- **v2.1.0 — LP Engine (My_LP_Makes_Neil_Proud):** the page engine with 6 models, 4 gates and the anti-fabrication supreme rule, plus the tracklink plug — published CTAs are tracked by contract.
+- **v2.0.0 — MailMKT (My_MailMKT_makes_Neil_Proud):** the full email cockpit — shared throttle, one cron, durable outbox, copy floor, demo dashboard, 107 tests — with the tracklink CTA plug end-to-end.
+- **August 2026 — MARKETING 4.0 (this superpack):** the ecosystem map (204 nodes, ~405 edges, ten lapidation rounds), the LEGO assembly manual, the cover, the Higgsfield videos and the real system captures.
+
+---
+
+## The final word
+
+Marketing 4.0 is not a collection of tools — it is an assembly discipline. Each piece in this pack solves a real funnel problem with an auditable contract; each plug between pieces is a sentence you can read; and every number in the report has a source line the graph points to. The ecosystem works because the pieces respect the pattern: the owner defines, consumers reference, validators verify, and tests remember.
+
+If you assemble just one piece, it works alone. If you assemble all eight, you have an entire marketing system that fits in a daily email, a dashboard screen and a navigable graph — and that answers, with a number and not an opinion, the only question that matters: **where did the sale come from, and how much did it cost to get there.**
+
+Assemble piece by piece. The contracts are the joints; the tests are the guarantee; the graph is the map.
 
 ---
 
 <p align="center">
-  <sub>CF Gauss · MARKETING 4.0 — Digital Marketing in the Age of AI · monte peça por peça</sub>
+  <sub>CF Gauss · MARKETING 4.0 — Digital Marketing in the Age of AI · assemble piece by piece</sub>
 </p>
