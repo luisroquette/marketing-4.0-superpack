@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/luisroquette"><img alt="CF Gauss" src="https://img.shields.io/badge/CF_Gauss-Applied_AI_Systems-7B2FBE?style=for-the-badge&labelColor=1A1524"></a>
+  <a href="https://github.com/luisroquette"><img alt="CF Gauss" src="https://img.shields.io/badge/CF_Gauss-Sistemas_de_IA_Aplicada-7B2FBE?style=for-the-badge&labelColor=1A1524"></a>
   <img alt="MIT" src="https://img.shields.io/badge/license-MIT-2E7D32?style=for-the-badge&labelColor=1A1524">
   <img alt="8 peças" src="https://img.shields.io/badge/peças-8-D5A62E?style=for-the-badge&labelColor=1A1524">
   <img alt="grafo 204 nós" src="https://img.shields.io/badge/grafo-204_nós-C9A7FF?style=for-the-badge&labelColor=1A1524">
@@ -21,7 +21,7 @@
 
 ---
 
-## Table of contents
+## Sumário
 
 - [Em 60 segundos](#em-60-segundos)
 - [O mapa: o grafo do ecossistema](#o-mapa-o-grafo-do-ecossistema)
@@ -35,6 +35,18 @@
 - [Roadmap do ecossistema](#roadmap-do-ecossistema)
 - [Limitações honestas](#limitações-honestas)
 - [Licença](#licença)
+- [Tutorial de montagem, passo a passo](#tutorial-de-montagem-passo-a-passo)
+- [Por que cada regra existe](#por-que-cada-regra-existe)
+- [Solução de problemas](#solução-de-problemas)
+- [As peças contra o mercado](#as-peças-contra-o-mercado)
+- [Um dia na operação do funil completo](#um-dia-na-operação-do-funil-completo)
+- [A história do ecossistema](#a-história-do-ecossistema)
+- [Guia rápido de quem mantém](#guia-rápido-de-quem-mantém)
+- [As imagens e vídeos deste repo](#as-imagens-e-vídeos-deste-repo)
+- [Por que confiar no grafo](#por-que-contrar-no-grafo)
+- [Comparativo de montagem](#comparativo-de-montagem)
+- [Perguntas frequentes: edição estendida](#perguntas-frequentes-edição-estendida)
+- [A última palavra](#a-última-palavra)
 
 ---
 
@@ -74,8 +86,8 @@ Se você quer um funil de uma tarde, monte duas peças. Se quer o sistema da sua
 ---
 
 <p align="center">
-  <video src="assets/demo-funil.mp4" autoplay muted loop playsinline width="560"></video><br>
-  <sub>O funil, animado — as seis peças se encaixando</sub>
+  <img src="assets/demo-funil.gif" alt="O funil animado — as seis peças se encaixando" width="560" /><br>
+  <sub>O funil, animado — as seis peças se encaixando (vídeo Higgsfield em loop; o .mp4 original está em assets/)</sub>
 </p>
 
 ## O funil em profundidade
@@ -146,8 +158,8 @@ O **ig-sentinel** lê quatro bancos Supabase em um cron diário e manda UM e-mai
 - **Imagem real:** o validator com os 13 casos de regressão (abaixo).
 
 <p align="center">
-  <video src="assets/demo-tracking.mp4" autoplay muted loop playsinline width="560"></video><br>
-  <sub>O ciclo de tracking, animado — o link atravessa o gate 302 até os destinos</sub>
+  <img src="assets/demo-tracking.gif" alt="O ciclo de tracking animado" width="560" /><br>
+  <sub>O ciclo de tracking, animado — o link atravessa o gate 302 até os destinos (vídeo Higgsfield em loop)</sub>
 </p>
 
 ![Validator do tracklink em ação](assets/terminal-tracklink.png)
@@ -161,14 +173,22 @@ O **ig-sentinel** lê quatro bancos Supabase em um cron diário e manda UM e-mai
 - **Imagens reais:** as quatro telas da dashboard demo (abaixo).
 
 <p align="center">
-  <video src="assets/demo-cockpit.mp4" autoplay muted loop playsinline width="560"></video><br>
-  <sub>O cockpit, animado — throttle, cinco motores e o calendário de colisões</sub>
+  <img src="assets/demo-cockpit.gif" alt="O cockpit animado" width="560" /><br>
+  <sub>O cockpit, animado — throttle, cinco motores e o calendário de colisões (vídeo Higgsfield em loop)</sub>
 </p>
 
-![Cockpit hub](assets/dashboard-hub.png)
-![Calendário de 14 dias](assets/dashboard-calendario.png)
-![Campanhas](assets/dashboard-campanhas.png)
-![Editor de copy com o piso](assets/dashboard-copy.png)
+<p align="center">
+  <table>
+    <tr>
+      <td align="center"><img src="assets/dashboard-hub.png" alt="Cockpit hub" width="380" /><br/><sub>Hub do cockpit</sub></td>
+      <td align="center"><img src="assets/dashboard-calendario.png" alt="Calendário de 14 dias" width="380" /><br/><sub>Calendário de 14 dias</sub></td>
+    </tr>
+    <tr>
+      <td align="center"><img src="assets/dashboard-campanhas.png" alt="Campanhas" width="380" /><br/><sub>Campanhas</sub></td>
+      <td align="center"><img src="assets/dashboard-copy.png" alt="Editor de copy com o piso" width="380" /><br/><sub>Editor de copy com o piso</sub></td>
+    </tr>
+  </table>
+</p>
 
 ### Peça 6 — Vendas com IA (Vender)
 
@@ -224,7 +244,7 @@ As peças não se chamam por código — se referenciam por **contratos em Markd
 
 LP Engine + Tracklink. A página captura o lead E atribui a origem. Ideal para validar oferta antes de construir o funil inteiro.
 
-### Receita C — Só nutrição (1 peça, self-contained)
+### Receita C — Só nutrição (1 peça, autocontida)
 
 MailMKT com throttle, outbox e dashboard demo. Ideal para listas existentes que precisam de disciplina de envio.
 
@@ -290,11 +310,6 @@ Adicione peças na ordem do funil, não na ordem do catálogo: só monte Nutrir 
 
 MIT — cada peça mantém sua própria licença (todas MIT). O claude-seo é MIT do autor original.
 
----
-
-<p align="center">
-  <sub>CF Gauss · MARKETING 4.0 — Digital Marketing in the Age of AI · monte peça por peça</sub>
-</p>
 ---
 
 ## Tutorial de montagem, passo a passo
@@ -363,7 +378,7 @@ As regras dos contratos não são preferências — cada uma tem um incidente ou
 
 ---
 
-## Troubleshooting
+## Solução de problemas
 
 **A LP publica mas o CTA não é trackeado** — o plug do tracklink não foi cumprido: confira se o contrato de publicação (`references/publicacao/contrato-tracklink.md`) está referenciado e se o link foi criado com o validador.
 
@@ -440,9 +455,7 @@ A ordem importa: o sistema existia antes do produto, os contratos antes do manua
 
 ## As imagens e vídeos deste repo
 
-Todas as imagens de produto são **capturas reais dos sistemas** (terminal rodando os validadores; as quatro telas da dashboard demo). As capas e os vídeos são gerados por IA no padrão visual CF Gauss (fundo `#1A1524`, roxo `#7B2FBE`, lilás `#C9A7FF`, as três ondas da logo) — os vídeos com o FLUX 3 Video e as capas com gpt-image-2. O grafo é o artefato mais honesto do repo: cada aresta tem uma frase de origem nos documentos.
-
----
+Todas as imagens de produto são **capturas reais dos sistemas** (terminal rodando os validadores; as quatro telas da dashboard demo). As capas e os vídeos são gerados por IA no padrão visual CF Gauss (fundo `#1A1524`, roxo `#7B2FBE`, lilás `#C9A7FF`, as três ondas da logo) — os vídeos com o FLUX 3 Video e as capas com gpt-image-2. Os vídeos entram neste README como **GIFs em loop**, porque o GitHub não renderiza a tag `<video>` — os `.mp4` originais continuam em `assets/` para quem quiser baixar. O grafo é o artefato mais honesto do repo: cada aresta tem uma frase de origem nos documentos.
 
 ---
 
@@ -468,7 +481,7 @@ Os tempos são de montagem, não de aprendizado — cada repo tem seu README com
 
 ---
 
-## Perguntas frequentes — a edição estendida
+## Perguntas frequentes: edição estendida
 
 **O funil funciona sem o claude-seo?** Sim — ele é a peça de aquisição orgânica; você pode começar com tráfego pago ou listas existentes. O estágio Atrair só precisa de UM motor para o funil rodar.
 
@@ -488,7 +501,6 @@ Os tempos são de montagem, não de aprendizado — cada repo tem seu README com
 
 **Posso comercializar serviços em cima?** Sim — o superpack é MIT. O que o ecossistema vende é a disciplina: auditoria, montagem e operação do funil. O software é o veículo; o contrato é o produto.
 
----
 ---
 
 ## A última palavra
