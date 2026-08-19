@@ -1,0 +1,34 @@
+{
+  "title": "MARKETING 4.0 — how the pieces communicate",
+  "nodes": [
+    { "id": "claude-seo", "piece": "SEO/GEO audit", "stage": "ATTRACT", "repo": "AgriciDaniel/claude-seo" },
+    { "id": "autoblog", "piece": "Autoblog", "stage": "ATTRACT", "repo": "cfgauss-site (app/api/cron/generate-article)" },
+    { "id": "lp", "piece": "LP Engine", "stage": "CONVERT", "repo": "luisroquette/My_LP_Makes_Neil_Proud" },
+    { "id": "tracklink", "piece": "Tracklink UTM", "stage": "CONVERT / MEASURE", "repo": "luisroquette/My_UTMs_Make_Me_Proud" },
+    { "id": "mailmkt", "piece": "MailMKT cockpit", "stage": "NURTURE", "repo": "luisroquette/My_MailMKT_makes_Neil_Proud" },
+    { "id": "maria", "piece": "marIA / Empiricus", "stage": "SELL", "repo": "cfgauss-site (lib/maria, lib/propostas)" },
+    { "id": "v31", "piece": "Social Machine V3.1", "stage": "AMPLIFY", "repo": "luisroquette/social-machine-v3.1" },
+    { "id": "sentinel", "piece": "ig-sentinel", "stage": "MEASURE", "repo": "luisroquette/ig-sentinel" },
+    { "id": "dashboard", "piece": "Unified dashboard", "stage": "MEASURE", "repo": "roadmap (next)" }
+  ],
+  "edges": [
+    { "from": "claude-seo", "to": "autoblog", "mechanism": "shared pattern: LP SEO gate (metaTitle/description/JSON-LD) follows the same methodology; audited content is what the autoblog publishes", "direct": false },
+    { "from": "autoblog", "to": "lp", "mechanism": "organic traffic via click; by contract the blog does NOT emit tracking links", "direct": true },
+    { "from": "lp", "to": "tracklink", "mechanism": "at publication the LP creates the tracked CTA link; on conversion the LP records firstTrackingClickId on the lead (camelCase)", "direct": true },
+    { "from": "tracklink", "to": "lp", "mechanism": "302 redirect; click recorded transactionally (RETURNING (xmax = 0)); analytics never blocks delivery", "direct": true },
+    { "from": "lp", "to": "mailmkt", "mechanism": "lead intake contract: 3-field lead (name + phone + email, bedrock clause) enters the 25-day sequence", "direct": true },
+    { "from": "mailmkt", "to": "tracklink", "mechanism": "every email CTA goes out as a mailmkt-<slug> tracked link", "direct": true },
+    { "from": "tracklink", "to": "maria", "mechanism": "attribution: the tracklink cookie records the origin on the purchase (last-click, snake_case)", "direct": true },
+    { "from": "v31", "to": "lp", "mechanism": "reach produced on IG; the funnel converts in pieces 3-5; bridge is observability, not tracking", "direct": false },
+    { "from": "sentinel", "to": "autoblog", "mechanism": "monitors autoblog failures over a 3-day window", "direct": true },
+    { "from": "sentinel", "to": "v31", "mechanism": "monitors Instagram state", "direct": true },
+    { "from": "sentinel", "to": "mailmkt", "mechanism": "reads Supabase state in the same daily cron (4 databases → 1 email); Doctor fixes via webhook", "direct": true },
+    { "from": "tracklink", "to": "dashboard", "mechanism": "7/30/90 calendar-filled metrics; absence ≠ zero", "direct": true },
+    { "from": "mailmkt", "to": "dashboard", "mechanism": "documented cockpit queries", "direct": true }
+  ],
+  "principles": [
+    "Contracts, not SDKs — no piece imports another's code; each contract has a declared owner; the owner wins disputes",
+    "The physical communication is the data — columns, 302 redirects, cookies and webhooks; no internal API calls",
+    "Absences are contracts too — the graph records what does NOT connect (autoblog does not track; marIA does not name the LP)"
+  ]
+}

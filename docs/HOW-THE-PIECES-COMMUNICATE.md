@@ -4,38 +4,26 @@ The full communication flow of the MARKETING 4.0 ecosystem — the map of who
 talks to whom, and through which physical mechanism. Companion to the main
 README and to the interactive graph (`assets/grafo-marketing-4.0.html`).
 
+```mermaid
+flowchart LR
+    SEO["claude-seo<br/>ATTRACT"] -->|"audited content pattern"| BLOG["Autoblog<br/>ATTRACT"]
+    BLOG -->|"traffic, no tracking links"| LP["LP Engine<br/>CONVERT"]
+    LP -->|"publishes CTA"| TK["Tracklink<br/>CONVERT / MEASURE"]
+    TK -->|"302 redirect + xmax=0 click"| LP
+    LP -->|"lead intake (3 fields)"| MK["MailMKT<br/>NURTURE"]
+    MK -->|"every CTA = mailmkt-&lt;slug&gt;"| TK
+    TK -->|"cookie: last-click on purchase"| MARIA["marIA / Empiricus<br/>SELL"]
+    MARIA -->|"sale"| VENDA(("Purchase"))
+    V31["Social V3.1<br/>AMPLIFY"] -->|"reach"| IG(("Instagram"))
+    SENT["ig-sentinel<br/>MEASURE"] -->|"1 cron/day, 4 DBs"| MAIL(("1 daily email"))
+    SENT -.->|"monitors failures (3-day window)"| BLOG
+    SENT -.->|"monitors IG"| V31
+    TK -->|"7/30/90 calendar-filled metrics"| DASH["Unified dashboard"]
+    MK -->|"cockpit queries"| DASH
 ```
-                    ┌─────────────────────────────────────────────────┐
-                    │             ig-sentinel (MEASURE)               │
-                    │  1 cron/day reads 4 Supabase DBs → 1 email      │
-                    └──┬──────────┬──────────┬───────────┬────────────┘
-       monitors failures│          │          │           │ monitors IG
-        (3-day window)  │          │          │           │
-┌──────────┐   traffic  ┌──────┐   │   ┌──────┴───────┐   ┌──────────────┐
-│ claude-seo│──(audited │autoblog│   │   │ Social V3.1 │   │marIA/Empiricus│
-│  (ATTRACT)│  content) │(ATTRACT)│   │   │  (AMPLIFY) │   │    (SELL)    │
-└──────────┘            └──┬───┘   │   └──────────────┘   └──────┬───────┘
-                          │ click │                                │ cookie on
-                          ▼       │                                │ purchase
-                     ┌───────────────────────────┐                 │
-                     │ LP Engine (CONVERT)       │                 │
-                     │ 3 fields: name+phone+email│                 │
-                     └──────┬────────────┬───────┘                 │
-               publishes CTA│            │ lead (intake)           │
-                            ▼            ▼                         │
-                     ┌─────────────┐  ┌──────────────────────────┐ │
-                     │  Tracklink  │  │  MailMKT (NURTURE)       │ │
-                     │ (CONVERT/   │◄─│  every CTA = mailmkt-<slug>│┘
-                     │  MEASURE)   │  │  throttle 1/lead/day      │
-                     │ 302 → LP    │──┘  outbox + floor + 1 cron  │
-                     └──────┬──────┘
-                            │ 7/30/90 calendar-filled metrics
-                            ▼
-                     ┌──────────────┐
-                     │   Unified    │
-                     │  dashboard   │
-                     └──────────────┘
-```
+
+> GitHub renders the Mermaid block above as a live diagram. The same flow as
+> machine-readable JSON: [`ecosystem-flow.json`](ecosystem-flow.json).
 
 ## How each connection actually works
 
