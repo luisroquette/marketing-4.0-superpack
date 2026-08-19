@@ -15,7 +15,7 @@
 <p align="center">
   <a href="https://github.com/luisroquette"><img alt="CF Gauss" src="https://img.shields.io/badge/CF_Gauss-Applied_AI_Systems-7B2FBE?style=for-the-badge&labelColor=1A1524"></a>
   <img alt="MIT" src="https://img.shields.io/badge/license-MIT-2E7D32?style=for-the-badge&labelColor=1A1524">
-  <img alt="8 pieces" src="https://img.shields.io/badge/pieces-8-D5A62E?style=for-the-badge&labelColor=1A1524">
+  <img alt="5 pieces" src="https://img.shields.io/badge/pieces-5-D5A62E?style=for-the-badge&labelColor=1A1524">
   <img alt="graph 204 nodes" src="https://img.shields.io/badge/graph-204_nodes-C9A7FF?style=for-the-badge&labelColor=1A1524">
 </p>
 
@@ -27,7 +27,7 @@
 - [The map: the ecosystem graph](#the-map-the-ecosystem-graph)
 - [The thesis: why pieces, not a platform](#the-thesis-why-pieces-not-a-platform)
 - [The funnel in depth](#the-funnel-in-depth)
-- [The 8 pieces, one by one](#the-8-pieces-one-by-one)
+- [The 5 pieces, one by one](#the-5-pieces-one-by-one)
 - [The contracts: the actual LEGO part](#the-contracts-the-actual-lego-part)
 - [Recipes: ready-to-assemble flows](#recipes-ready-to-assemble-flows)
 - [What the graph reveals](#what-the-graph-reveals)
@@ -57,7 +57,7 @@
 
 ## In 60 seconds
 
-A marketing funnel has six stages: attract traffic, convert it into leads, nurture the leads, sell, amplify on social networks, and measure everything. This superpack delivers every stage as an **independent piece** — an open MIT repository with Markdown contracts and deterministic validators — plus the **manual that shows how the pieces plug together**. You can assemble just the conversion layer (LP + tracking) in an afternoon, or the whole funnel (SEO → LP → tracking → email → AI sales → social → observability) over a few weeks. Each piece works alone; the set works as a system because the pieces reference each other through **contracts**, not coupled code. The interactive graph in this repo is the map of those connections — extracted from the systems' own documents, not hand-drawn.
+A marketing funnel has four stages: attract traffic, convert it into leads, nurture the leads, and measure everything. This superpack delivers every stage as an **independent piece** — an open MIT repository with Markdown contracts and deterministic validators — plus the **manual that shows how the pieces plug together**. You can assemble just the conversion layer (LP + tracking) in an afternoon, or the whole funnel (SEO → LP → tracking → email → metrics) over a few weeks. Each piece works alone; the set works as a system because the pieces reference each other through **contracts**, not coupled code. The interactive graph in this repo is the map of those connections — extracted from the systems' own documents, not hand-drawn.
 
 The rest of this README is the manual: every piece in detail, every plug explained, ready-made recipes, and the questions you would ask before assembling.
 
@@ -88,13 +88,13 @@ Closed marketing platforms sell the whole funnel at once: you pay for stages you
 3. **Auditability is the product** — the rules are prose you read and validators you run. "How do we know the throttle works?" has an answer: `npm test`, 107 tests.
 4. **Honesty is the brand** — absence is never zero, anti-fabrication beats a pretty page, and the limitations are written down in every repo. The graph even records the connections that do NOT exist (because the docs do not support them).
 
-If you want a one-afternoon funnel, assemble two pieces. If you want the operating system of your marketing, assemble all eight — the same discipline, the same visual standard, the same contracts.
+If you want a one-afternoon funnel, assemble two pieces. If you want the operating system of your marketing, assemble all five — the same discipline, the same visual standard, the same contracts.
 
 ---
 
 <p align="center">
-  <img src="assets/demo-funil.gif" alt="The animated funnel — six pieces snapping together" width="560" /><br>
-  <sub>The funnel, animated — six pieces snapping together (Higgsfield video in loop; the original .mp4 lives in assets/)</sub>
+  <img src="assets/demo-funil.gif" alt="The animated funnel — the pieces snapping together" width="560" /><br>
+  <sub>The funnel, animated — the pieces snapping together (Higgsfield video in loop; the original .mp4 lives in assets/)</sub>
 </p>
 
 ## The funnel in depth
@@ -113,21 +113,13 @@ The **LP engine** builds the sales page (six models, four gates, anti-fabricatio
 
 **MailMKT** receives the lead through the intake contract and runs the 25-day sequence under a shared throttle — one email per lead per day, guaranteed by 107 tests. Every email CTA goes out as a `mailmkt-<slug>` tracklink, so nurture also attributes. The incident that created this piece is documented in the repo: a real lead received three emails in one hour, and the throttle is the scar that prevents repetition.
 
-### Sell — the conversation closes
-
-**marIA** sells over WhatsApp (catalog, case studies, authority — the conversation is the landing page) and the **Empiricus engine** runs the evergreen track and launch campaigns with a compliance gate at runtime. The proposal system generates proposals by AI. Sale attribution comes from the cookie of the tracking piece — the sale happens in the conversation, but the answer to "where did this customer come from" still comes from the tracklink contract.
-
-### Amplify — reach scales
-
-**Social Machine V3.1** publishes reels and stories on Instagram with editorial planning. It produces reach; the funnel converts in the previous pieces. The bridge between the two is observability, not tracking.
-
 ### Measure — all the time
 
-**ig-sentinel** reads four Supabase databases in one daily cron and sends ONE unified email — the ecosystem's state on a single inbox screen. The tracklink **metrics contract** (7/30/90 calendar-filled windows, absence ≠ zero) feeds the unified dashboard. Measuring is not the last stage of the funnel: it is the layer that crosses all the others.
+The tracklink **metrics contract** (7/30/90 calendar-filled windows, absence ≠ zero) feeds the unified dashboard, and the MailMKT cockpit contributes its documented queries. Measuring is not the last stage of the funnel: it is the layer that crosses all the others.
 
 ---
 
-## The 8 pieces, one by one
+## The 5 pieces, one by one
 
 ### Piece 1 — SEO/GEO (Attract)
 
@@ -139,9 +131,9 @@ The **LP engine** builds the sales page (six models, four gates, anti-fabricatio
 
 ### Piece 2 — Autoblog (Attract)
 
-- **What it does:** autonomous editorial content — articles generated from real sources, with a compliance guard at runtime (same pattern as the Empiricus engine's gate). Living reference in `cfgauss-site` (`app/api/cron/generate-article`).
-- **Plug:** ig-sentinel (monitors autoblog failures over a 3-day window). It does not emit tracking links — the blog attracts, the LP converts, and the contract keeps that boundary explicit.
-- **Why it matters:** continuous organic traffic is the cheapest asset in the funnel — but only if someone measures when it stops working. The sentinel is that someone.
+- **What it does:** autonomous editorial content — articles generated from real sources, with a compliance guard at runtime. Living reference in `cfgauss-site` (`app/api/cron/generate-article`).
+- **Plug:** none — by contract it does not emit tracking links; the blog attracts, the LP converts, and the contract keeps that boundary explicit.
+- **Why it matters:** continuous organic traffic is the cheapest asset in the funnel — and the metrics contract is what tells you when it stops working.
 
 ### Piece 3 — LP Engine (Convert)
 
@@ -197,24 +189,6 @@ The **LP engine** builds the sales page (six models, four gates, anti-fabricatio
   </table>
 </p>
 
-### Piece 6 — AI Sales (Sell)
-
-- **What it does:** marIA sells over WhatsApp (the catalog and the case studies are the conversation); the Empiricus engine runs the evergreen track (content drip) and launch campaigns with a compliance gate at runtime; the proposal system generates proposals by AI.
-- **Where it lives:** living reference in `cfgauss-site` (`lib/maria`, `lib/propostas`, the Empiricus engine documented in `docs/MOTOR-EMPIRICUS-CFGAUSS.md`).
-- **Plug:** the in-house courses platform. Honest note from the graph: the sales agent does not name the LP/tracking in its docs — the sale happens in the conversation; attribution comes from the tracklink cookie recorded on the purchase.
-
-### Piece 7 — Social Amplification (Amplify)
-
-- **What it does:** Instagram automation — reels, stories, editorial planning and content RADAR.
-- **Where it lives:** Social Machine V3.1 (`luisroquette/social-machine-v3.1`).
-- **Plug:** ig-sentinel (monitors IG). It produces reach; the funnel converts in pieces 3-5.
-
-### Piece 8 — ig-sentinel (Measure)
-
-- **What it does:** ecosystem observability — one cron reads 4 Supabase databases and sends ONE unified daily email; the Doctor fixes issues automatically via webhook (fix protocol).
-- **Where it lives:** `luisroquette/ig-sentinel`.
-- **Plug:** autoblog (counts failures per window), V3.1/SWEN/CF Gauss (Instagram state). It is the piece that answers "is the ecosystem healthy?" in one email line per day.
-
 ---
 
 ## The contracts: the actual LEGO part
@@ -248,7 +222,7 @@ The pieces do not call each other through code — they reference each other thr
 
 **Anti-fabrication** is supreme because every other rule exists to protect trust, and a fabricated price destroys it in one pageview. When the source does not state it, the page does not state it — the omission is the feature.
 
-**Why Markdown contracts instead of SDKs?** Because the consumer can be any stack — the contract is prose readable by humans and agents alike, and the deterministic validator is the machine that verifies. No piece imports code from another; all of them read the same rules file. That is what allows assembling the funnel with two pieces today and eight tomorrow without rewriting anything.
+**Why Markdown contracts instead of SDKs?** Because the consumer can be any stack — the contract is prose readable by humans and agents alike, and the deterministic validator is the machine that verifies. No piece imports code from another; all of them read the same rules file. That is what allows assembling the funnel with two pieces today and five tomorrow without rewriting anything.
 
 ---
 
@@ -259,9 +233,7 @@ The pieces do not call each other through code — they reference each other thr
 1. **Attract:** clone claude-seo and run the audit on your site; the autoblog publishes continuous content (reference in cfgauss-site).
 2. **Convert:** clone LP + Tracklink → create the page (brief or URL), plug tracking at publication, validate with `validar-blueprint.py`.
 3. **Nurture:** clone MailMKT → run `npm test` (107 tests) → point the intake contract at the LP's leads → run the demo (`cd dashboard && npm run dev`).
-4. **Sell:** marIA/Empiricus on WhatsApp and campaigns (living reference in cfgauss-site).
-5. **Amplify:** V3.1 publishes reels/stories.
-6. **Measure:** ig-sentinel sends the daily email; the unified dashboard consumes the tracklink metrics + the cockpit queries.
+4. **Measure:** the unified dashboard consumes the tracklink metrics + the cockpit queries — clicks per channel, leads per origin, sends per motor, link health.
 
 ### Recipe B — Conversion only (2 pieces, ~30 minutes)
 
@@ -282,7 +254,7 @@ Add pieces in funnel order, not catalog order: only assemble Nurture after Conve
 - **The hub is email:** MailMKT concentrates ~45 connections — the cockpit touches throttle, dispatcher, outbox, tracking and dashboard at the same time.
 - **Three principles cross the repos:** "absence is never zero", "analytics never blocks delivery" and "cascading gates" — the graph connects them by semantic similarity between documents from different systems.
 - **The incident is the architecture:** the 08/17 incident node (three emails in one hour) connects to the throttle, the dispatcher and the outbox — the documented reason each of them exists.
-- **Absences are information too:** the graph records the connections that do NOT exist (the autoblog does not use tracking; the sales agent does not name the LP) — because lapidation rejected edges without evidence in the docs. An honest map shows what is not connected.
+- **Absences are information too:** the graph records the connections that do NOT exist (the autoblog does not use tracking links) — because lapidation rejected edges without evidence in the docs. An honest map shows what is not connected.
 
 ---
 
@@ -290,7 +262,7 @@ Add pieces in funnel order, not catalog order: only assemble Nurture after Conve
 
 **Where do I start?** With Recipe B — two pieces, half an hour, and you already have conversion with attribution. The full funnel is a natural expansion.
 
-**Do I need all 8 repos to work?** No. Each piece works alone; the contracts exist for when you plug the next ones.
+**Do I need every piece to work?** No. Each piece works alone; the contracts exist for when you plug the next ones.
 
 **Can I use just the skills, not the code?** Yes — the skills are the portable methodology; the public repos (LP, Tracklink, MailMKT) are the reference implementations with validators and tests.
 
@@ -322,9 +294,10 @@ Add pieces in funnel order, not catalog order: only assemble Nurture after Conve
 
 ## Honest limitations
 
-- **marIA and V3.1 are living references, not public repos** — the code lives in cfgauss-site and social-machine-v3.1; their public contracts are the docs cited here.
-- **The graph covers the contracts, not all the code** — 204 concepts extracted from the documents; the repos' code has its own graphs (MailMKT has the port graph; cfgauss-site has the agentic graph with 903 nodes).
-- **Attribution between conversation and cookie** — the sales agent does not name tracking in its docs; the bridge is the cookie recorded on the purchase. Documented, not hidden.
+- **The manual covers the 5 public pieces** — the interactive graph artifact (204 nodes) also maps the wider production ecosystem, because the extraction is honest about the docs; the pack itself ships and documents only the five marketing pieces.
+- **The autoblog's code is a living reference, not a public repo** — it lives in `cfgauss-site`; its public contract is the one described here.
+- **The graph covers the contracts, not all the code** — 204 concepts extracted from the documents; the repos' code has its own graphs (MailMKT has the port graph).
+- **Attribution ends at the purchase** — the tracklink cookie records the origin on the purchase (first/last click); what happens after the purchase is outside the pack's scope. Documented, not hidden.
 - **This manual is a snapshot of August 2026** — the graph updates by re-extracting the corpus; the README updates when the pieces change version.
 
 ---
@@ -362,16 +335,14 @@ Two "FORM VALID"/"SELF-TEST OK" mean the pieces are intact.
 
 Recipe A is Recipe B + four pieces, in funnel order:
 
-1. **Before converting, attract** — run claude-seo on your site (full audit with the plugin's 32 commands) and turn on the autoblog (reference: `cfgauss-site/app/api/cron/generate-article`). The sentinel starts monitoring the autoblog.
+1. **Before converting, attract** — run claude-seo on your site (full audit with the plugin's 32 commands) and turn on the autoblog (reference: `cfgauss-site/app/api/cron/generate-article`).
 2. **Assemble conversion** (complete Recipe B).
 3. **Plug nurture** — in the MailMKT repo: `npm install && npm test` (107 green), point the intake at the LP's leads, configure throttle and schedules through the demo's rules screen. Every email CTA goes out as `mailmkt-<slug>` automatically.
-4. **Plug sales** — marIA and the Empiricus engine (living reference in cfgauss-site). The tracklink cookie records the origin on the purchase.
-5. **Amplify** — V3.1 for reels/stories; the sentinel monitors IG.
-6. **Measure** — the sentinel's daily email + the unified dashboard (tracklink metrics + cockpit queries).
+4. **Measure** — the unified dashboard consumes the tracklink metrics + the cockpit queries; the tracklink cookie records the origin on every purchase.
 
 ### Once assembled: what you gain
 
-- **One answer per report question:** where the lead came from (first-click), who closed (last-click), how many emails each lead received (throttle), which links are broken (health), whether the autoblog stopped (sentinel).
+- **One answer per report question:** where the lead came from (first-click), who closed (last-click), how many emails each lead received (throttle), which links are broken (health).
 - **Zero deploys to change rules:** cadence, schedules, audiences and copy change through screens, not commits.
 - **Testable guarantees:** 107 tests in email, 13 cases in tracking, gates in the LP. If something regresses, the test fails.
 
@@ -409,7 +380,7 @@ The contract rules are not preferences — each one has a documented incident or
 
 **The dashboard shows zero sent but the cron ran** — a failed read is `null`, never zero. A real zero means a round without candidates; a `null` means a broken read. The distinction is the contract.
 
-**The autoblog stopped publishing** — the sentinel's daily email should show the status; if it did not, the monitor does not cover the cron (check the report's 3-day window).
+**The autoblog stopped publishing** — check the dashboard health: the metrics contract makes a silent pipeline visible as a missing day, never as a zero.
 
 **The click does not count in the report** — check whether it was HEAD/prefetch (excluded by contract), whether the link loops through `/t/` (the validator rejects at creation) or whether the counter was incremented outside the transaction (the rule is `RETURNING (xmax = 0)`).
 
@@ -428,9 +399,7 @@ For each stage, what the market sells and what the piece delivers:
 | Convert | Closed page builders, no contract | LP engine with 6 models, 4 gates and anti-fabrication — the page is auditable |
 | Convert/Measure | A UTM spreadsheet maintained by hand | Tracklink with a 13-case validator — the link is the contract |
 | Nurture | Email platform with invisible rules | MailMKT with throttle, outbox and floor — 107 tests you can run |
-| Sell | Manual follow-up on WhatsApp | marIA/Empiricus — the conversation is the landing page, with a compliance gate |
-| Amplify | A social media agency | V3.1 with autonomous editorial planning and the sentinel watching |
-| Measure | A monthly funnel report | Calendar-filled metric contracts + the sentinel's daily email |
+| Measure | A monthly funnel report | Calendar-filled metric contracts + the unified dashboard |
 
 The difference is not price (everything is MIT) — it is **auditability**. On a platform, the rule that governs your money is invisible. Here, the rule is a Markdown file you read and a test you run.
 
@@ -438,7 +407,7 @@ The difference is not price (everything is MIT) — it is **auditability**. On a
 
 ## A day operating the full funnel
 
-At 09:00, the sentinel's cron reads the four databases and assembles the daily email. At 10:00, the MailMKT dispatcher asks the agenda who is due: mail mkt and the evergreen track are both up, and the shared throttle guarantees no lead receives more than one email — even with two motors in the same round. A lead clicks the email's CTA: the tracking link records the click transactionally and redirects to the LP in milliseconds. On the LP, they convert: the lead records the first-click id and enters the nurture intake. In the afternoon, marIA talks to a lead on WhatsApp and closes — the purchase records the last-click id. At night, the autoblog publishes the day's article and V3.1 posts a reel. Tomorrow, the sentinel's email summarizes everything on one screen: sends, failures, publications, alerts.
+At 10:00, the MailMKT dispatcher asks the agenda who is due: mail mkt and the evergreen track are both up, and the shared throttle guarantees no lead receives more than one email — even with two motors in the same round. A lead clicks the email's CTA: the tracking link records the click transactionally and redirects to the LP in milliseconds. On the LP, they convert: the lead records the first-click id and enters the nurture intake. At night, the autoblog publishes the day's article. The unified dashboard summarizes everything on one screen: clicks, leads, sends, health.
 
 No step of that day required a deploy. Cadence, schedules, audiences and copy change through screens; the rules change through a contract with a test; and every number in the report has a source line in the graph.
 
@@ -462,7 +431,7 @@ The order matters: the system existed before the product, the contracts before t
 
 **You run the operation and want to know what to watch:**
 
-- **Every Monday:** read the sentinel's email (the whole week on one screen). Zero findings is normal — the alert exists for when it is not.
+- **Every day:** glance at the unified dashboard — clicks, leads, sends, link health. The metrics contract makes anomalies visible as gaps, never as zeros.
 - **Every copy change:** run the floor before saving (the editor already does this) and check the gate at send.
 - **Every monthly report:** trust the tracklink's calendar-filled windows; if a day is absent (not zero), tracking stopped — investigate the pipeline before the campaign.
 - **Every new rule:** write the contract first, the test alongside, and run the self-test. The repo rule is: fix and regression in the same commit.
@@ -485,7 +454,7 @@ The pieces were extracted from a production system, and their security posture i
 - **Idempotent, transactional clicks** — the counter increments inside the same transaction that writes the click (`RETURNING (xmax = 0)`), so a replayed event can never double-count a conversion.
 - **Fail-closed outbox** — an ambiguous failure (timeout/5xx) preserves the reservation instead of resending: duplicates are worse than gaps.
 - **Dry mode with zero side effects** — inspection modes cannot send, write tracking or clean state; a test asserts each one.
-- **Runtime compliance gates** — the Empiricus engine and the autoblog validate their output at runtime, not only at authoring time; a guard that only runs in the editor can be bypassed by the database.
+- **Runtime compliance gates** — the autoblog validates its output at runtime, not only at authoring time; a guard that only runs in the editor can be bypassed by the database.
 - **Least-privilege database adapters** — the Supabase adapter ships with explicit `REVOKE`/`GRANT` RPCs, so the application role gets the surface it needs and nothing else.
 
 The posture in one line: every external call is validated, every write is transactional, and every failure mode has a defined behavior — the tests are the proof.
@@ -531,7 +500,7 @@ A marketing map is usually a pretty slide drawn by a consultant. This graph is d
 
 1. **Extracted, not drawn.** The 204 nodes come from semantic extraction of the repos' own documents — every node has a source file and every edge has a supporting sentence. No edge was added without evidence; those without any were rejected across ten lapidation rounds.
 2. **Lapidated with a convergence criterion.** Every review round hunted for duplicates, orphans, unsupported edges and missing connections — and the loop only stopped when two consecutive rounds found nothing. Each round's artifacts (`.lapidacao_r1.json` through `.lapidacao_r10.json`) are the process's audit trail.
-3. **Honest about absences.** The graph records what is NOT connected: the autoblog does not use tracking, the sales agent does not name the LP, the sentinel does not cover email. A map that only shows connections sends you hunting for an integration that does not exist; this one shows the real boundary of each piece.
+3. **Honest about absences.** The graph records what is NOT connected: the autoblog does not use tracking links. A map that only shows connections sends you hunting for an integration that does not exist; this one shows the real boundary of each piece.
 
 ---
 
@@ -541,7 +510,7 @@ A marketing map is usually a pretty slide drawn by a consultant. This graph is d
 |---|---|---|---|
 | C — Nurture | 1 | 1 hour (clone + tests + demo) | Send discipline with throttle and outbox |
 | B — Conversion | 2 | ~30 minutes to 1 afternoon | A page that converts AND attributes |
-| A — Full funnel | 8 | 1-2 weeks, in funnel order | The entire marketing system, auditable |
+| A — Full funnel | 5 | 1-2 weeks, in funnel order | The entire marketing system, auditable |
 
 The times are assembly times, not learning times — each repo has its own README with the full cycle and the contracts. The real learning is reading the contracts once; after that, operating is screens and one daily email.
 
@@ -600,7 +569,7 @@ The graph is the review surface: new contracts are re-extracted into the corpus,
 
 Marketing 4.0 is not a collection of tools — it is an assembly discipline. Each piece in this pack solves a real funnel problem with an auditable contract; each plug between pieces is a sentence you can read; and every number in the report has a source line the graph points to. The ecosystem works because the pieces respect the pattern: the owner defines, consumers reference, validators verify, and tests remember.
 
-If you assemble just one piece, it works alone. If you assemble all eight, you have an entire marketing system that fits in a daily email, a dashboard screen and a navigable graph — and that answers, with a number and not an opinion, the only question that matters: **where did the sale come from, and how much did it cost to get there.**
+If you assemble just one piece, it works alone. If you assemble all five, you have an entire marketing system that fits in a dashboard screen and a navigable graph — and that answers, with a number and not an opinion, the only question that matters: **where did the sale come from, and how much did it cost to get there.**
 
 Assemble piece by piece. The contracts are the joints; the tests are the guarantee; the graph is the map.
 
