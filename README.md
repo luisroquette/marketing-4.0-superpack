@@ -28,6 +28,7 @@
 - [The thesis: why pieces, not a platform](#the-thesis-why-pieces-not-a-platform)
 - [The funnel in depth](#the-funnel-in-depth)
 - [The 5 pieces, one by one](#the-5-pieces-one-by-one)
+- [The sockets: where the owner plugs their own tools](#the-sockets-where-the-owner-plugs-their-own-tools)
 - [The contracts: the actual LEGO part](#the-contracts-the-actual-lego-part)
 - [Recipes: ready-to-assemble flows](#recipes-ready-to-assemble-flows)
 - [What the graph reveals](#what-the-graph-reveals)
@@ -188,6 +189,48 @@ The tracklink **metrics contract** (7/30/90 calendar-filled windows, absence ≠
     </tr>
   </table>
 </p>
+
+---
+
+## The sockets: where the owner plugs their own tools
+
+The pieces are only half of the system. The other half is the owner's
+existing stack — and the two halves meet at **sockets**: the integration
+points where a chosen tool plugs in. A socket is a data shape plus rules; a
+**plug** is the concrete tool that fulfills it. The pack ships reference
+plugs; the socket is what matters.
+
+```mermaid
+flowchart TD
+  BASE["Sockets 1+2+3 plugged: DB + LP host + email"] -->|"capture → attribute → nurture"| FUNNEL["Full funnel — sales not measured"]
+  FUNNEL -->|"+ socket 4: checkout bridge"| CIRCLE["FULL CIRCLE: traffic → click → lead → email → sale WITH origin"]
+  CIRCLE -->|"+ socket 5: domain"| TRUST["Deliverability + strong attribution (Path A)"]
+  TRUST -->|"+ socket 6: traffic"| VOLUME["The funnel has volume"]
+  VOLUME -->|"+ socket 9: dashboard"| DONE["Leave the spreadsheet"]
+```
+
+| # | Socket | Required? | Reference plug | Without it |
+|---|---|---|---|---|
+| 1 | Postgres database | Yes | Supabase | No tracking, no throttle, no cockpit |
+| 2 | LP hosting | Yes | Vercel | The landing page never publishes |
+| 3 | Email provider | Yes (for nurture) | Resend | Leads are captured and go cold |
+| 4 | Checkout (sale source) | The one that unlocks total potential | None — outside the pack by contract | The funnel never measures revenue |
+| 5 | Domain + DNS | Should | Any registrar | Emails land in spam; attribution Path A closed |
+| 6 | Traffic | Should | claude-seo (organic) | Assembled funnel with no volume |
+| 7 | SEO/GEO | Optional | claude-seo (third-party) | The Attract stage stays uncovered |
+| 8 | AI generation | Optional | Claude API | Nothing breaks — copy becomes manual |
+| 9 | Dashboard/reporting | Optional today | The owner's spreadsheet | The owner keeps the spreadsheet |
+
+Socket 4 is the only one separating "funnel operating" from "funnel measuring
+money" — the pack stops at the click by contract; plugging checkout is the
+owner's move (see [Migrating from a closed platform](#migrating-from-a-closed-platform)).
+
+The full registry — contracts per socket, alternative plugs, and the
+per-socket checklist the onboarding wizard renders — lives in
+[`.claude/skills/marketing40-onboarding/references/sockets.md`](.claude/skills/marketing40-onboarding/references/sockets.md).
+The wizard ends every onboarding with a `SOCKETS.md` snapshot: the owner's
+own stack, socket by socket, with whatever stays locked while a socket is
+empty.
 
 ---
 
