@@ -19,5 +19,10 @@ Assertions — all must hold:
 6. `wizard-state.json` records all phase answers and gate results.
 7. A simulated failed gate halts the run, reports to the owner, and attempts
    no patch.
+8. `references/sockets.md` exists and lists all 9 sockets with every required
+   field filled (Socket, Contract, Required?, Reference plug, Alternative
+   plugs, Locked without it).
+9. The Phase 7 report renders one line per socket with a status — an empty
+   socket is never silent.
 
 A failed assertion is a skill regression — fix before shipping the skill.
