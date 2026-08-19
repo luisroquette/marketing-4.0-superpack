@@ -21,7 +21,7 @@ flowchart TD
 | # | Socket | Contract | Required? | Reference plug | Alternative plugs | Locked without it |
 |---|---|---|---|---|---|---|
 | 1 | Postgres database | Transactional idempotent clicks (`RETURNING (xmax = 0)`); 7/30/90 calendar-filled metrics; shared throttle state | Yes | Supabase (Lovable ships one; free tier) | Neon, Railway Postgres | No tracking, no throttle, no cockpit |
-| 2 | LP hosting | Publication gate validates before any write | Yes | Vercel | Lovable page (TODO-VERIFY), Netlify, Cloudflare Pages | The landing page never publishes |
+| 2 | LP hosting | Publication gate validates before any write | Yes | Vercel | Netlify, Cloudflare Pages (a Lovable page is not supported today — the LP emits a blueprint, not pasteable HTML) | The landing page never publishes |
 | 3 | Email provider | Resend-style adapter; 1 email/lead/day; fail-closed outbox | Yes (for nurture) | Resend | Mailgun, Amazon SES, SMTP | Leads are captured and go cold |
 | 4 | Checkout (sale source) | Attribution ends at the click; the bridge reads `firstTrackingClickId` or the same-domain cookie | The one that unlocks total potential | None — outside the pack by contract | Stripe, Mercado Pago, Pagar.me, Lovable checkout | The funnel never measures revenue |
 | 5 | Domain + DNS | DKIM/SPF for the sender; cookie `Domain` attribute for attribution Path A | Should | Any registrar | Cloudflare, GoDaddy, Hostinger | Emails land in spam; Path A closed (Path B stays open) |
