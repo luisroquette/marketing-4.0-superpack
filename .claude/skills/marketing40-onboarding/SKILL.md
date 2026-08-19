@@ -126,17 +126,25 @@ without approval.
 
 ### Phase 7 — Final report (owner's language, business words)
 
-Report four things:
+If `references/sockets.md` is missing (partial skill copy), say
+"reference missing" and halt the report — never improvise the socket list.
+
+Report five things:
 
 1. **Verifiable NOW:** validators green, page live (URL), ad link ready, a test
    lead injected carrying its origin.
 2. **Awaiting real traffic:** anything that only shows up once visitors arrive.
 3. **Not working yet:** purchase attribution (if Phase 6 was skipped) and the
    unified dashboard (roadmap item — keep the spreadsheet for now).
-4. **Week 1:** a five-line checklist including sender-domain DKIM/warm-up
+4. **Plugs installed:** read `references/sockets.md` and render one line per
+   socket — ✓ plugged (name the tool) / ⚠ partial / ✗ empty (state what stays
+   locked). An empty socket is never silent.
+5. **Week 1:** a five-line checklist including sender-domain DKIM/warm-up
    before the first real campaign.
 
-Save `wizard-state.json` and close.
+Write the snapshot `marketing40-setup/SOCKETS.md` — the same 9 rows with the
+owner's choices filled in (socket, status, chosen tool, what is locked) — the
+"my stack" page the owner keeps. Save `wizard-state.json` and close.
 
 ## Self-test
 
