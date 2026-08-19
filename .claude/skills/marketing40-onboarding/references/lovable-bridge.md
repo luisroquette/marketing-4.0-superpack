@@ -1,10 +1,10 @@
 # Lovable bridge (mechanics for Lovable-built stores)
 
 The pack speaks repos and contracts; the owner speaks Lovable. This file is
-the translation layer. Items marked TODO-VERIFY must be confirmed against the
-current Lovable UI before the wizard claims them — if unverified, instruct by
-goal ("open your project settings and look for the database section"), never
-by invented clicks.
+the translation layer. Everything below was verified against Lovable and
+Stripe documentation on 19/08. If a platform path is ever unverified again,
+mark it TODO-VERIFY, instruct by goal ("open your project settings and look
+for the database section"), never by invented clicks.
 
 | The owner needs | Reality in Lovable |
 |---|---|
