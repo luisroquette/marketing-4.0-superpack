@@ -24,3 +24,8 @@ def test_cockpit_has_empty_state():
 def test_cockpit_falls_back_to_empty_state_on_load_failure():
     js = (REPO_ROOT / "cockpit" / "app.js").read_text(encoding="utf-8")
     assert "catch" in js
+
+
+def test_cockpit_guides_file_protocol_users():
+    js = (REPO_ROOT / "cockpit" / "app.js").read_text(encoding="utf-8")
+    assert 'location.protocol === "file:"' in js

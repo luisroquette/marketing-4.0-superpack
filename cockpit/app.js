@@ -36,7 +36,14 @@ async function load() {
     render(await res.json());
   } catch (err) {
     console.error("Cockpit: could not load status.json — showing empty state.", err);
-    document.getElementById("empty-state").hidden = false;
+    const emptyState = document.getElementById("empty-state");
+    emptyState.hidden = false;
+    if (location.protocol === "file:") {
+      document.getElementById("empty-state-title").textContent =
+        "This page needs a static server";
+      document.getElementById("empty-state-hint").textContent =
+        "Run `python3 -m http.server` in this folder and open http://localhost:8000 — double-clicking the file hides the data.";
+    }
   }
 }
 
