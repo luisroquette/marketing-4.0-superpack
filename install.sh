@@ -52,16 +52,19 @@ for entry in "${REPOS[@]}"; do
 done
 
 if [[ -d "${WIZARD_SRC}" ]]; then
+  rm -rf "${SKILLS_DIR}/marketing40-onboarding"
   cp -R "${WIZARD_SRC}" "${SKILLS_DIR}/marketing40-onboarding"
 else
   echo "warning: wizard skill not found at ${WIZARD_SRC} — the pack will run without /marketing40-onboarding" >&2
 fi
 
-cat >> CLAUDE.md <<'EOF'
+if ! grep -q "This workspace runs the Marketing 4.0 pack" CLAUDE.md 2>/dev/null; then
+  cat >> CLAUDE.md <<'EOF'
 
 # Marketing 4.0
 This workspace runs the Marketing 4.0 pack inside Claude Code.
 Start with `/marketing40-onboarding`.
 EOF
+fi
 
 echo "Done. Open Claude Code in this workspace and run /marketing40-onboarding"
