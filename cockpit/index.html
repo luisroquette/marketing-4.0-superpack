@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketing 4.0 — Campaign Cockpit</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="cockpit-header">
+    <h1>Marketing 4.0</h1>
+    <p class="cockpit-client" id="client-name">—</p>
+    <p class="cockpit-updated" id="updated-at">—</p>
+  </header>
+
+  <main class="stages">
+    <section class="stage" id="stage-atrair">
+      <h2>Atrair</h2>
+      <p class="stage-count" id="count-atrair">0</p>
+      <ul class="stage-list" id="list-atrair"></ul>
+    </section>
+    <section class="stage" id="stage-converter">
+      <h2>Converter</h2>
+      <p class="stage-count" id="count-converter">0</p>
+      <ul class="stage-list" id="list-converter"></ul>
+    </section>
+    <section class="stage" id="stage-nutrir">
+      <h2>Nutrir</h2>
+      <p class="stage-count" id="count-nutrir">0</p>
+      <ul class="stage-list" id="list-nutrir"></ul>
+    </section>
+    <section class="stage" id="stage-medir">
+      <h2>Medir</h2>
+      <p class="stage-count" id="count-medir">0</p>
+      <ul class="stage-list" id="list-medir"></ul>
+    </section>
+  </main>
+
+  <div class="empty-state" id="empty-state" hidden>
+    <h2>Pilot has no campaigns yet</h2>
+    <p>Run the pack once and re-export <code>status.json</code> — the stages above fill in automatically.</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

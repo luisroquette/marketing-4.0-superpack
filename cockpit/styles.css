@@ -1,0 +1,34 @@
+:root {
+  --ink: #1a1524;
+  --muted: #6b6478;
+  --accent: #7b2fbe;
+  --line: #e5e0ee;
+}
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--ink);
+  background: #faf9fc;
+}
+.cockpit-header { padding: 2rem 1.5rem 1rem; border-bottom: 1px solid var(--line); }
+.cockpit-header h1 { margin: 0; font-size: 1.4rem; }
+.cockpit-client { margin: 0.25rem 0 0; font-weight: 600; }
+.cockpit-updated { margin: 0; color: var(--muted); font-size: 0.85rem; }
+.stages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  padding: 1.5rem;
+}
+.stage { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; background: #fff; }
+.stage h2 { margin: 0 0 0.5rem; font-size: 1rem; }
+.stage-count { margin: 0 0 0.5rem; font-size: 1.6rem; font-weight: 700; color: var(--accent); }
+.stage-list { margin: 0; padding-left: 1.1rem; color: var(--muted); font-size: 0.85rem; }
+.empty-state {
+  margin: 1.5rem;
+  padding: 1.5rem;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  text-align: center;
+  color: var(--muted);
+}
