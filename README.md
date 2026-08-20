@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/logo.png" alt="CF Gauss" width="56" />
+  <img src="assets/logo.png" alt="Marketing 4.0 logo" width="56" />
 </p>
 
 <h1 align="center">MARKETING 4.0</h1>
@@ -12,12 +12,27 @@
   <strong>Digital Marketing in the Age of AI — the assembly manual for your marketing ecosystem, piece by piece, like LEGO.</strong>
 </p>
 
+> **Marketing 4.0 runs inside Claude Code.** One command installs it, one command starts it: `bash install.sh`, then `/marketing40-onboarding`.
+
 <p align="center">
-  <a href="https://github.com/luisroquette"><img alt="CF Gauss" src="https://img.shields.io/badge/CF_Gauss-Applied_AI_Systems-7B2FBE?style=for-the-badge&labelColor=1A1524"></a>
+  <a href="https://github.com/luisroquette"><img alt="Marketing 4.0" src="https://img.shields.io/badge/Marketing_4.0-Applied_AI_Systems-7B2FBE?style=for-the-badge&labelColor=1A1524"></a>
   <img alt="MIT" src="https://img.shields.io/badge/license-MIT-2E7D32?style=for-the-badge&labelColor=1A1524">
   <img alt="5 pieces" src="https://img.shields.io/badge/pieces-5-D5A62E?style=for-the-badge&labelColor=1A1524">
   <img alt="graph 263 nodes" src="https://img.shields.io/badge/graph-263_nodes-C9A7FF?style=for-the-badge&labelColor=1A1524">
 </p>
+
+---
+
+## How to run
+
+Marketing 4.0 is a set of agent skills that run **inside Claude Code** — not a
+standalone program, not a server, and not something you upload to a chat bot.
+
+1. Install [Claude Code](https://claude.com/claude-code) and sign in (one per operator).
+2. Clone this repository and run `bash install.sh` inside the client workspace.
+3. Open Claude Code in that workspace and run `/marketing40-onboarding`.
+
+The wizard walks the team through credentials, gates, and the first campaign.
 
 ---
 
@@ -132,7 +147,7 @@ The tracklink **metrics contract** (7/30/90 calendar-filled windows, absence ≠
 
 ### Piece 2 — Autoblog (Attract)
 
-- **What it does:** autonomous editorial content — articles generated from real sources, with a compliance guard at runtime. Living reference in `cfgauss-site` (`app/api/cron/generate-article`).
+- **What it does:** autonomous editorial content — articles generated from real sources, with a compliance guard at runtime. Living reference in `the production site` (`app/api/cron/generate-article`).
 - **Plug:** none — by contract it does not emit tracking links; the blog attracts, the LP converts, and the contract keeps that boundary explicit.
 - **Why it matters:** continuous organic traffic is the cheapest asset in the funnel — and the metrics contract is what tells you when it stops working.
 
@@ -273,7 +288,7 @@ The pieces do not call each other through code — they reference each other thr
 
 ### Recipe A — Full funnel (the entire ecosystem)
 
-1. **Attract:** clone claude-seo and run the audit on your site; the autoblog publishes continuous content (reference in cfgauss-site).
+1. **Attract:** clone claude-seo and run the audit on your site; the autoblog publishes continuous content (reference in the production site).
 2. **Convert:** clone LP + Tracklink → create the page (brief or URL), plug tracking at publication, validate with `validar-blueprint.py`.
 3. **Nurture:** clone MailMKT → run `npm test` (107 tests) → point the intake contract at the LP's leads → run the demo (`cd dashboard && npm run dev`).
 4. **Measure:** the unified dashboard consumes the tracklink metrics + the cockpit queries — clicks per channel, leads per origin, sends per motor, link health.
@@ -338,7 +353,7 @@ Add pieces in funnel order, not catalog order: only assemble Nurture after Conve
 ## Honest limitations
 
 - **The manual covers the 5 public pieces** — the interactive graph artifact (263 nodes) also maps the wider production ecosystem, because the extraction is honest about the docs; the pack itself ships and documents only the five marketing pieces.
-- **The autoblog's code is a living reference, not a public repo** — it lives in `cfgauss-site`; its public contract is the one described here.
+- **The autoblog's code is a living reference, not a public repo** — it lives in `the production site`; its public contract is the one described here.
 - **The graph covers the contracts, not all the code** — 263 concepts extracted from the documents; the repos' code has its own graphs (MailMKT has the port graph).
 - **Attribution ends at the purchase** — the tracklink cookie records the origin on the purchase (first/last click); what happens after the purchase is outside the pack's scope. Documented, not hidden.
 - **This manual is a snapshot of August 2026** — the graph updates by re-extracting the corpus; the README updates when the pieces change version.
@@ -378,7 +393,7 @@ Two "FORM VALID"/"SELF-TEST OK" mean the pieces are intact.
 
 Recipe A is Recipe B + four pieces, in funnel order:
 
-1. **Before converting, attract** — run claude-seo on your site (full audit with the plugin's 32 commands) and turn on the autoblog (reference: `cfgauss-site/app/api/cron/generate-article`).
+1. **Before converting, attract** — run claude-seo on your site (full audit with the plugin's 32 commands) and turn on the autoblog (reference: `the production site/app/api/cron/generate-article`).
 2. **Assemble conversion** (complete Recipe B).
 3. **Plug nurture** — in the MailMKT repo: `npm install && npm test` (107 green), point the intake at the LP's leads, configure throttle and schedules through the demo's rules screen. Every email CTA goes out as `mailmkt-<slug>` automatically.
 4. **Measure** — the unified dashboard consumes the tracklink metrics + the cockpit queries; the tracklink cookie records the origin on every purchase.
@@ -533,7 +548,7 @@ The trap to avoid is re-implementing the closed platform inside the new stack. T
 
 ## Images and videos in this repo
 
-Every product image is a **real capture of the systems** (terminals running the validators; the four demo dashboard screens). The covers and videos are AI-generated in the CF Gauss visual standard (`#1A1524` background, `#7B2FBE` purple, `#C9A7FF` lilac, the three logo waves) — the videos with Higgsfield FLUX 3 Video and the covers with gpt-image-2. The videos enter this README as **looping GIFs** because GitHub does not render the `<video>` tag — the original `.mp4` files remain in `assets/` for download. The graph is the repo's most honest artifact: every edge has a source sentence in the documents.
+Every product image is a **real capture of the systems** (terminals running the validators; the four demo dashboard screens). The covers and videos are AI-generated in the the shared visual standard (`#1A1524` background, `#7B2FBE` purple, `#C9A7FF` lilac, the three logo waves) — the videos with Higgsfield FLUX 3 Video and the covers with gpt-image-2. The videos enter this README as **looping GIFs** because GitHub does not render the `<video>` tag — the original `.mp4` files remain in `assets/` for download. The graph is the repo's most honest artifact: every edge has a source sentence in the documents.
 
 ---
 
@@ -575,7 +590,7 @@ The times are assembly times, not learning times — each repo has its own READM
 
 **Does this repo replace the others?** No — it is the index and the manual. The repos remain the owners of their contracts and code; this repo references. The pattern is the ecosystem's own: the owner wins, consumers reference.
 
-**How does the visual standard work across the three repos?** The CF Gauss Visual Standard (`#1A1524` background, `#7B2FBE` purple, `#C9A7FF` lilac, Inter, the three-wave logo) is saved and applied to covers, terminals, dashboards and READMEs — any future piece inherits the pattern.
+**How does the visual standard work across the three repos?** The shared visual standard (`#1A1524` background, `#7B2FBE` purple, `#C9A7FF` lilac, Inter, the three-wave logo) is saved and applied to covers, terminals, dashboards and READMEs — any future piece inherits the pattern.
 
 **Can I commercialize services on top?** Yes — the superpack is MIT. What the ecosystem sells is discipline: auditing, assembling and operating the funnel. The software is the vehicle; the contract is the product.
 
@@ -619,5 +634,5 @@ Assemble piece by piece. The contracts are the joints; the tests are the guarant
 ---
 
 <p align="center">
-  <sub>CF Gauss · MARKETING 4.0 — Digital Marketing in the Age of AI · assemble piece by piece</sub>
+  <sub>MARKETING 4.0 — Digital Marketing in the Age of AI · assemble piece by piece</sub>
 </p>
