@@ -65,8 +65,13 @@ for entry in "${REPOS[@]}"; do
 done
 
 if [[ -d "${WIZARD_SRC}" ]]; then
-  rm -rf "${SKILLS_DIR}/marketing40-onboarding"
-  cp -R "${WIZARD_SRC}" "${SKILLS_DIR}/marketing40-onboarding"
+  wizard_dst="${SKILLS_DIR}/marketing40-onboarding"
+  # Bundle layout: when install.sh ships inside the workspace, source and
+  # destination are the same folder — deleting would destroy the wizard.
+  if [[ "$(cd "${WIZARD_SRC}" && pwd -P)" != "$(cd "${wizard_dst}" 2>/dev/null && pwd -P)" ]]; then
+    rm -rf "${wizard_dst}"
+    cp -R "${WIZARD_SRC}" "${wizard_dst}"
+  fi
 else
   echo "warning: wizard skill not found at ${WIZARD_SRC} — the pack will run without /marketing40-onboarding" >&2
 fi

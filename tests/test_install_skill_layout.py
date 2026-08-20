@@ -53,3 +53,21 @@ def test_engine_without_skill_file_warns_instead_of_silent_skip(tmp_path):
     assert result.returncode == 0, result.stderr
     assert "no SKILL.md" in result.stderr
     assert "my-blog-makes-neil-proud" in result.stderr
+
+
+def test_bundle_layout_keeps_wizard_when_source_is_destination(tmp_path):
+    """REGRESSÃO (bundle 2026-08-20): no bundle de download, install.sh e o
+    wizard vivem na MESMA árvore — o rm -rf do wizard apagava a fonte e o
+    cp morria. A skill deve continuar intacta e o install terminar 0."""
+    import shutil
+
+    ws = _workspace(tmp_path)
+    wizard = ws / ".claude" / "skills" / "marketing40-onboarding"
+    wizard.mkdir(parents=True)
+    (wizard / "SKILL.md").write_text("# wizard\n", encoding="utf-8")
+    shutil.copy2(INSTALL, ws / "install.sh")
+    result = subprocess.run(
+        ["bash", "install.sh"], cwd=ws, capture_output=True, text=True, timeout=60
+    )
+    assert result.returncode == 0, result.stderr
+    assert (wizard / "SKILL.md").exists()
