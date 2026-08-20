@@ -140,8 +140,8 @@ The tracklink **metrics contract** (7/30/90 calendar-filled windows, absence ≠
 ### Piece 1 — SEO/GEO (Attract)
 
 - **What it does:** audits your site for classic search and AI search with a plugin of 25 sub-skills and 18 specialist agents. Its declared differentiator: **falsifiability** — every recommendation carries its own failure criterion.
-- **Repo:** [`AgriciDaniel/claude-seo`](https://github.com/AgriciDaniel/claude-seo) (MIT, third-party — referenced, not forked)
-- **Install:** `git clone https://github.com/AgriciDaniel/claude-seo.git`
+- **Repo:** [`luisroquette/claude-seo`](https://github.com/luisroquette/claude-seo) (MIT, fork of [AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo) — kept in sync with upstream)
+- **Install:** `git clone https://github.com/luisroquette/claude-seo.git`
 - **Plug:** no dependencies — it is the front door. The connection to the rest of the funnel is indirect: the LP's SEO gate (metaTitle/metaDescription/JSON-LD) uses the same pattern, and the audited content is what the autoblog publishes.
 - **Real imagery:** the repo includes demo GIFs of the plugin running in the terminal and the author's real growth chart.
 
