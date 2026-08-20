@@ -1,0 +1,42 @@
+name: release-bundle
+
+# On a v* tag, builds a single ZIP with the pack AND the 5 engines inside
+# (marketing40/), so a client downloads one file and runs `bash install.sh`
+# offline — no git, no clone.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Clone engines into marketing40/
+        run: |
+          mkdir -p marketing40
+          repos=(
+            "luisroquette/My_LP_Makes_Neil_Proud:my-lp-makes-neil-proud"
+            "luisroquette/My_UTMs_Make_Me_Proud:my-utms-make-me-proud"
+            "luisroquette/My_MailMKT_makes_Neil_Proud:my-mailmkt-makes-neil-proud"
+            "luisroquette/My_Blog_Makes_Neil_Proud:my-blog-makes-neil-proud"
+            "AgriciDaniel/claude-seo:claude-seo"
+          )
+          for entry in "${repos[@]}"; do
+            repo="${entry%%:*}"; name="${entry##*:}"
+            git clone --depth 1 "https://github.com/${repo}.git" "marketing40/${name}"
+          done
+
+      - name: Zip the bundle
+        run: |
+          zip -r marketing-4.0-bundle.zip . \
+            -x ".git/*" "marketing40/*/.git/*" "*.zip"
+
+      - name: Attach to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: marketing-4.0-bundle.zip
