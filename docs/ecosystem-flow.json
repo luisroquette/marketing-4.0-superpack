@@ -2,7 +2,7 @@
   "title": "MARKETING 4.0 — how the pieces communicate",
   "nodes": [
     { "id": "claude-seo", "piece": "SEO/GEO audit", "stage": "ATTRACT", "repo": "AgriciDaniel/claude-seo" },
-    { "id": "autoblog", "piece": "Autoblog", "stage": "ATTRACT", "repo": "cfgauss-site (app/api/cron/generate-article)" },
+    { "id": "autoblog", "piece": "Autoblog", "stage": "ATTRACT", "repo": "the production site (app/api/cron/generate-article)" },
     { "id": "lp", "piece": "LP Engine", "stage": "CONVERT", "repo": "luisroquette/My_LP_Makes_Neil_Proud" },
     { "id": "tracklink", "piece": "Tracklink UTM", "stage": "CONVERT / MEASURE", "repo": "luisroquette/My_UTMs_Make_Me_Proud" },
     { "id": "mailmkt", "piece": "MailMKT cockpit", "stage": "NURTURE", "repo": "luisroquette/My_MailMKT_makes_Neil_Proud" },
