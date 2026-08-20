@@ -43,12 +43,25 @@ for entry in "${REPOS[@]}"; do
   else
     echo "already present: ${DEST}/${name} (skipping clone)"
   fi
-  mkdir -p "${SKILLS_DIR}/${name}"
-  for entry_path in SKILL.md references scripts assets templates; do
-    if [[ -e "${DEST}/${name}/${entry_path}" ]]; then
-      cp -R "${DEST}/${name}/${entry_path}" "${SKILLS_DIR}/${name}/"
-    fi
-  done
+  if [[ -f "${DEST}/${name}/SKILL.md" ]]; then
+    mkdir -p "${SKILLS_DIR}/${name}"
+    for entry_path in SKILL.md references scripts assets templates; do
+      if [[ -e "${DEST}/${name}/${entry_path}" ]]; then
+        cp -R "${DEST}/${name}/${entry_path}" "${SKILLS_DIR}/${name}/"
+      fi
+    done
+  fi
+  if [[ -d "${DEST}/${name}/skills" ]]; then
+    for skill_dir in "${DEST}/${name}"/skills/*/; do
+      [[ -f "${skill_dir}SKILL.md" ]] || continue
+      skill_name="$(basename "${skill_dir}")"
+      rm -rf "${SKILLS_DIR}/${skill_name}"
+      cp -R "${skill_dir}" "${SKILLS_DIR}/${skill_name}"
+    done
+  fi
+  if [[ ! -f "${DEST}/${name}/SKILL.md" && ! -d "${DEST}/${name}/skills" ]]; then
+    echo "warning: no SKILL.md in ${name} — engine cloned only; the wizard assembles it in Phase 5" >&2
+  fi
 done
 
 if [[ -d "${WIZARD_SRC}" ]]; then
