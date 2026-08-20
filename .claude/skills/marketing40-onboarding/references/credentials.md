@@ -15,7 +15,7 @@
 
 ## Where secrets live
 
-- ONLY in `<workspace>/marketing40-setup/.env`, created in Phase 0 and
+- ONLY in `<workspace>/.env`, created in Phase 0 and
   gitignored. The owner pastes values directly into this file (the wizard
   creates it empty); secrets never enter the chat. Never in repo files, never
   in commits, never in docs, never in chat artifacts.

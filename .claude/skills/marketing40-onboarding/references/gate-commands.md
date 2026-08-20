@@ -3,14 +3,14 @@
 For each piece, run its validator BEFORE using the piece. Two positive
 signatures mean the machine is intact.
 
-| Piece | Gate command | Expected |
-|---|---|---|
-| LP engine (My_LP_Makes_Neil_Proud) | `python3 My_LP_Makes_Neil_Proud/scripts/validar-blueprint.py --input My_LP_Makes_Neil_Proud/examples/example-briefing-input.json` | `FORM VALID` |
-| Tracklink (My_UTMs_Make_Me_Proud) | `python3 My_UTMs_Make_Me_Proud/scripts/validar-tracking-link.py --self-test` | `SELF-TEST OK` |
-| MailMKT (My_MailMKT_makes_Neil_Proud) | `npm install && npm test` (in the repo dir) | 107 tests green |
-| MailMKT demo dashboard | `cd dashboard && npm run dev` | cockpit renders locally (mocked data) |
-| claude-seo | third-party plugin — install it, run the audit (32 commands); referenced, never forked | audit completes |
-| Autoblog | living reference in cfgauss-site — NOT a public repo; document the contract, do not clone | n/a |
+| Piece | Clone URL | Gate command | Expected |
+|---|---|---|---|
+| LP engine (My_LP_Makes_Neil_Proud) | `https://github.com/luisroquette/My_LP_Makes_Neil_Proud` | `python3 My_LP_Makes_Neil_Proud/scripts/validar-blueprint.py --input My_LP_Makes_Neil_Proud/examples/example-briefing-input.json` | `FORM VALID` |
+| Tracklink (My_UTMs_Make_Me_Proud) | `https://github.com/luisroquette/My_UTMs_Make_Me_Proud` | `python3 My_UTMs_Make_Me_Proud/scripts/validar-tracking-link.py --self-test` | `SELF-TEST OK` |
+| MailMKT (My_MailMKT_makes_Neil_Proud) | `https://github.com/luisroquette/My_MailMKT_makes_Neil_Proud` | `npm install && npm test` (in the repo dir) | 107 tests green |
+| MailMKT demo dashboard | (inside the MailMKT repo) | `cd dashboard && npm run dev` | cockpit renders locally (mocked data) |
+| claude-seo | (third-party plugin — install it, run the audit (32 commands); referenced, never forked) | n/a | audit completes |
+| Autoblog | (living reference in the production site — NOT a public repo; document the contract, do not clone) | n/a | n/a |
 
 Order: run gates in funnel order, one piece at a time, recording each result
 in `wizard-state.json` before starting the next piece.

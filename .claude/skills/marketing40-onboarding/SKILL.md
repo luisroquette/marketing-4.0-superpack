@@ -113,7 +113,10 @@ in `wizard-state.json` → next piece. A failed gate HALTS the assembly: report
 to the owner in plain words, and do not patch piece code unless asked.
 Installing a third-party plugin (claude-seo) requires the owner's explicit
 agreement first. Deploys: one per piece, after local validation, with the cost
-alert repeated — never iterative redeploys. MailMKT cron hosting: Vercel cron
+alert repeated — never iterative redeploys. If the LP needs Vercel hosting and
+the owner has no Vercel account: the owner creates one at vercel.com in their
+browser (sign-up with email or GitHub) before the LP deploy gate — never create
+accounts on the owner's behalf. MailMKT cron hosting: Vercel cron
 or Railway (both cost-aware).
 
 ### Phase 6 — Attribution bridge (optional, explicit approval required)
@@ -142,7 +145,7 @@ Report five things:
 5. **Week 1:** a five-line checklist including sender-domain DKIM/warm-up
    before the first real campaign.
 
-Write the snapshot `marketing40-setup/SOCKETS.md` — the same 9 rows with the
+Write the snapshot `<workspace>/SOCKETS.md` — the same 9 rows with the
 owner's choices filled in (socket, status, chosen tool, what is locked) — the
 "my stack" page the owner keeps. Save `wizard-state.json` and close.
 

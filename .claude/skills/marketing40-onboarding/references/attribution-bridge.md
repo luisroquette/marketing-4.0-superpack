@@ -32,7 +32,10 @@ email/phone they gave the form.
 ## Wizard rules for this phase
 
 - Present both paths with the trade-offs; let the owner choose (or skip).
-- Deliverable: a documented snippet + where it goes in Lovable (TODO-VERIFY
-  current custom-code flow). Never edit the owner's app without approval.
+- Deliverable: a documented snippet. Where it goes in a Lovable store
+  (verified 20/08/2026): the owner prompts Lovable to add the code
+  (chat-driven) and keeps it in a separate utility file so Lovable
+  regenerations do not overwrite it. Never edit the owner's app without
+  approval.
 - The final report must state honestly which path was taken or that the
   bridge was skipped — purchases will not attribute until it exists.
