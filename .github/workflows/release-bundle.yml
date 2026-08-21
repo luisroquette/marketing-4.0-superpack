@@ -17,6 +17,10 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Clone engines into marketing40/
+        # Clones default branches on purpose (not tags): the bundle ships the
+        # pack at a v* tag together with each engine's latest state, so the
+        # offline ZIP never carries a stale engine. Pinning engine tags would
+        # require updating six refs per release for no client benefit.
         run: |
           mkdir -p marketing40
           repos=(
