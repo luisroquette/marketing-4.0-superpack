@@ -17,6 +17,7 @@ for the database section"), never by invented clicks.
 
 - Purchase attribution is NOT in the pack — it ends at the click. Closing the
   loop requires a small bridge in the store (`attribution-bridge.md`).
-- The unified dashboard is a roadmap item. Until it ships, the owner keeps
-  their spreadsheet; the metrics contract (7/30/90, absence ≠ zero) is the
-  shape the export will use.
+- The unified dashboard is the 6th piece (My_Dashboard_Makes_Me_Proud),
+  read-only by contract: it never writes to the owner's database. Until it
+  is plugged, the owner keeps their spreadsheet; the metrics contract
+  (7/30/90, absence ≠ zero) is the shape the export will use.

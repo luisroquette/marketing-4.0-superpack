@@ -18,7 +18,7 @@
   <a href="https://github.com/luisroquette"><img alt="Marketing 4.0" src="https://img.shields.io/badge/Marketing_4.0-Applied_AI_Systems-7B2FBE?style=for-the-badge&labelColor=1A1524"></a>
   <img alt="MIT" src="https://img.shields.io/badge/license-MIT-2E7D32?style=for-the-badge&labelColor=1A1524">
   <img alt="6 pieces" src="https://img.shields.io/badge/pieces-6-D5A62E?style=for-the-badge&labelColor=1A1524">
-  <img alt="graph 263 nodes" src="https://img.shields.io/badge/graph-263_nodes-C9A7FF?style=for-the-badge&labelColor=1A1524">
+  <img alt="graph 372 nodes" src="https://img.shields.io/badge/graph-372_nodes-C9A7FF?style=for-the-badge&labelColor=1A1524">
 </p>
 
 ---
@@ -81,7 +81,7 @@ The rest of this README is the manual: every piece in detail, every plug explain
 
 ## The map: the ecosystem graph
 
-**[Open the interactive graph](assets/grafo-marketing-4.0.html)** — download the file and open it in your browser. It holds **263 concepts and ~357 connections** extracted from the repositories' contracts, clustered by funnel stage — including the socket registry (the 9 sockets wired to their pieces).
+**[Open the interactive graph](assets/grafo-marketing-4.0.html)** — download the file and open it in your browser. It holds **372 concepts and 321 connections** extracted from the repositories' contracts, clustered by funnel stage — including the socket registry (the 9 sockets wired to their pieces).
 
 Prefer a plain-text map? **[How the pieces communicate](docs/HOW-THE-PIECES-COMMUNICATE.md)** — every connection between the pieces and the physical mechanism behind it.
 
@@ -104,7 +104,7 @@ Closed marketing platforms sell the whole funnel at once: you pay for stages you
 3. **Auditability is the product** — the rules are prose you read and validators you run. "How do we know the throttle works?" has an answer: `npm test`, 107 tests.
 4. **Honesty is the brand** — absence is never zero, anti-fabrication beats a pretty page, and the limitations are written down in every repo. The graph even records the connections that do NOT exist (because the docs do not support them).
 
-If you want a one-afternoon funnel, assemble two pieces. If you want the operating system of your marketing, assemble all five — the same discipline, the same visual standard, the same contracts.
+If you want a one-afternoon funnel, assemble two pieces. If you want the operating system of your marketing, assemble all six — the same discipline, the same visual standard, the same contracts.
 
 ---
 
@@ -287,7 +287,7 @@ The pieces do not call each other through code — they reference each other thr
 
 **Anti-fabrication** is supreme because every other rule exists to protect trust, and a fabricated price destroys it in one pageview. When the source does not state it, the page does not state it — the omission is the feature.
 
-**Why Markdown contracts instead of SDKs?** Because the consumer can be any stack — the contract is prose readable by humans and agents alike, and the deterministic validator is the machine that verifies. No piece imports code from another; all of them read the same rules file. That is what allows assembling the funnel with two pieces today and five tomorrow without rewriting anything.
+**Why Markdown contracts instead of SDKs?** Because the consumer can be any stack — the contract is prose readable by humans and agents alike, and the deterministic validator is the machine that verifies. No piece imports code from another; all of them read the same rules file. That is what allows assembling the funnel with two pieces today and six tomorrow without rewriting anything.
 
 ---
 
@@ -359,9 +359,9 @@ Add pieces in funnel order, not catalog order: only assemble Nurture after Conve
 
 ## Honest limitations
 
-- **The manual covers the 5 public pieces** — the interactive graph artifact (263 nodes) also maps the wider production ecosystem, because the extraction is honest about the docs; the pack itself ships and documents only the five marketing pieces.
+- **The manual covers the 6 public pieces** — the interactive graph artifact (372 nodes) also maps the wider production ecosystem, because the extraction is honest about the docs; the pack itself ships and documents only the six marketing pieces.
 - **The autoblog's code is a living reference, not a public repo** — it lives in `the production site`; its public contract is the one described here.
-- **The graph covers the contracts, not all the code** — 263 concepts extracted from the documents; the repos' code has its own graphs (MailMKT has the port graph).
+- **The graph covers the contracts, not all the code** — 372 concepts extracted from the documents; the repos' code has its own graphs (MailMKT has the port graph).
 - **Attribution ends at the purchase** — the tracklink cookie records the origin on the purchase (first/last click); what happens after the purchase is outside the pack's scope. Documented, not hidden.
 - **This manual is a snapshot of August 2026** — the graph updates by re-extracting the corpus; the README updates when the pieces change version.
 
@@ -485,7 +485,7 @@ The superpack was not designed top-down — it was **extracted** from a producti
 1. **The incident.** A real lead receives three emails in one hour. The investigation finds five motors with five independent throttles — and the cockpit (shared throttle, one cron, outbox) is born as the fix.
 2. **The extraction.** Each production system becomes a public skill with Markdown contracts and deterministic validators: first tracking (v1.0.0), then the LP (v2.1.0 with the tracking plug), then email (v2.0.0 with the full cockpit).
 3. **The lapidation.** Each repo goes through adversarial review rounds — 36 findings in MailMKT, 11 in tracklink, 9 in the LP — with a regression test for every bug class, and the criterion of two consecutive clean rounds before publishing.
-4. **The graph.** The repos' contracts become a corpus, graphify extracts 263 concepts and ~357 connections, and ten lapidation rounds deduplicate and validate every edge against textual evidence.
+4. **The graph.** The repos' contracts become a corpus, graphify extracts 372 concepts and 321 connections, and ten lapidation rounds deduplicate and validate every edge against textual evidence.
 5. **The manual.** This README — the human reading of the graph, with the pieces, the plugs and the recipes.
 
 The order matters: the system existed before the product, the contracts before the manual, and the graph before the map. That is why every claim in this README has an origin in the repos — and the absences are documented too.
@@ -563,7 +563,7 @@ Every product image is a **real capture of the systems** (terminals running the 
 
 A marketing map is usually a pretty slide drawn by a consultant. This graph is different on three counts:
 
-1. **Extracted, not drawn.** The 263 nodes come from semantic extraction of the repos' own documents — every node has a source file and every edge has a supporting sentence. No edge was added without evidence; those without any were rejected across ten lapidation rounds.
+1. **Extracted, not drawn.** The 372 nodes come from semantic extraction of the repos' own documents — every node has a source file and every edge has a supporting sentence. No edge was added without evidence; those without any were rejected across ten lapidation rounds.
 2. **Lapidated with a convergence criterion.** Every review round hunted for duplicates, orphans, unsupported edges and missing connections — and the loop only stopped when two consecutive rounds found nothing. Each round's artifacts (`.lapidacao_r1.json` through `.lapidacao_r10.json`) are the process's audit trail.
 3. **Honest about absences.** The graph records what is NOT connected: the autoblog does not use tracking links. A map that only shows connections sends you hunting for an integration that does not exist; this one shows the real boundary of each piece.
 
@@ -603,7 +603,7 @@ The times are assembly times, not learning times — each repo has its own READM
 
 **Is this a framework I must adopt entirely?** No — every piece is independently useful. The tracking validator alone replaces a spreadsheet; the LP validator alone audits your pages; the cockpit alone disciplines an existing list. The superpack only adds the map between them.
 
-**How do I know the numbers in the README are real?** Each claim traces to a repo: 107 tests (`npm test` in MailMKT), 13 regression cases (the tracklink self-test), 263 nodes / ~357 edges (the graph artifact in `assets/`). The manual follows the same rule the pieces follow: what cannot be verified is not claimed.
+**How do I know the numbers in the README are real?** Each claim traces to a repo: 107 tests (`npm test` in MailMKT), 13 regression cases (the tracklink self-test), 372 nodes / 321 edges (the graph artifact in `assets/`). The manual follows the same rule the pieces follow: what cannot be verified is not claimed.
 
 ---
 
@@ -626,7 +626,7 @@ The graph is the review surface: new contracts are re-extracted into the corpus,
 - **v1.0.0 — Tracklink (My_UTMs_Make_Me_Proud):** the tracking contract extracted as a public skill — core channel-agnostic, validators with 13 regression cases, first/last-click attribution, SSRF-guarded health.
 - **v2.1.0 — LP Engine (My_LP_Makes_Neil_Proud):** the page engine with 6 models, 4 gates and the anti-fabrication supreme rule, plus the tracklink plug — published CTAs are tracked by contract.
 - **v2.0.0 — MailMKT (My_MailMKT_makes_Neil_Proud):** the full email cockpit — shared throttle, one cron, durable outbox, copy floor, demo dashboard, 107 tests — with the tracklink CTA plug end-to-end.
-- **August 2026 — MARKETING 4.0 (this superpack):** the ecosystem map (263 nodes, ~357 edges, ten lapidation rounds), the LEGO assembly manual, the cover, the Higgsfield videos and the real system captures.
+- **August 2026 — MARKETING 4.0 (this superpack):** the ecosystem map (372 nodes, 321 edges, ten lapidation rounds), the LEGO assembly manual, the cover, the Higgsfield videos and the real system captures.
 
 ---
 
@@ -634,7 +634,7 @@ The graph is the review surface: new contracts are re-extracted into the corpus,
 
 Marketing 4.0 is not a collection of tools — it is an assembly discipline. Each piece in this pack solves a real funnel problem with an auditable contract; each plug between pieces is a sentence you can read; and every number in the report has a source line the graph points to. The ecosystem works because the pieces respect the pattern: the owner defines, consumers reference, validators verify, and tests remember.
 
-If you assemble just one piece, it works alone. If you assemble all five, you have an entire marketing system that fits in a dashboard screen and a navigable graph — and that answers, with a number and not an opinion, the only question that matters: **where did the sale come from, and how much did it cost to get there.**
+If you assemble just one piece, it works alone. If you assemble all six, you have an entire marketing system that fits in a dashboard screen and a navigable graph — and that answers, with a number and not an opinion, the only question that matters: **where did the sale come from, and how much did it cost to get there.**
 
 Assemble piece by piece. The contracts are the joints; the tests are the guarantee; the graph is the map.
 

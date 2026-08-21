@@ -102,6 +102,22 @@ def validate_graph_tags(data, graph_path):
     return []
 
 
+def validate_gate_commands():
+    """REGRESSÃO 21/08: o wizard não sabia instalar a peça 6 (sem clone URL do
+    dashboard) e citava o claude-seo como 'never forked'. O guard lê o FONTE
+    (gate-commands.md) — não confia em comentário nem em memória."""
+    errors = []
+    path = SKILL_REF / "gate-commands.md"
+    text = path.read_text(encoding="utf-8")
+    if "https://github.com/luisroquette/My_Dashboard_Makes_Me_Proud" not in text:
+        errors.append("gate-commands.md: dashboard clone URL missing (6th piece not installable)")
+    if "https://github.com/luisroquette/claude-seo" not in text:
+        errors.append("gate-commands.md: claude-seo fork URL missing")
+    if "never forked" in text:
+        errors.append("gate-commands.md: stale 'never forked' claude-seo note (piece 1 IS a fork)")
+    return errors
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--graph", help="path to graphify graph.json to cross-check socket nodes")
@@ -114,7 +130,7 @@ def main():
         print(f"FAIL: cannot read {json_path}: {exc}")
         sys.exit(1)
 
-    errors = validate_schema(data) + validate_md_consistency(data)
+    errors = validate_schema(data) + validate_md_consistency(data) + validate_gate_commands()
     if args.graph:
         errors += validate_graph_tags(data, args.graph)
 

@@ -138,7 +138,9 @@ Report five things:
    lead injected carrying its origin.
 2. **Awaiting real traffic:** anything that only shows up once visitors arrive.
 3. **Not working yet:** purchase attribution (if Phase 6 was skipped) and the
-   unified dashboard (roadmap item — keep the spreadsheet for now).
+   unified dashboard (if socket 9 was left empty — the 6th piece
+   My_Dashboard_Makes_Me_Proud is optional; until it is plugged the owner
+   keeps the spreadsheet).
 4. **Plugs installed:** read `references/sockets.md` and render one line per
    socket — ✓ plugged (name the tool) / ⚠ partial / ✗ empty (state what stays
    locked). An empty socket is never silent.
