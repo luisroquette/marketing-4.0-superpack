@@ -24,7 +24,7 @@ jobs:
             "luisroquette/My_UTMs_Make_Me_Proud:my-utms-make-me-proud"
             "luisroquette/My_MailMKT_makes_Neil_Proud:my-mailmkt-makes-neil-proud"
             "luisroquette/My_Blog_Makes_Neil_Proud:my-blog-makes-neil-proud"
-            "AgriciDaniel/claude-seo:claude-seo"
+            "luisroquette/claude-seo:claude-seo"
           )
           for entry in "${repos[@]}"; do
             repo="${entry%%:*}"; name="${entry##*:}"
