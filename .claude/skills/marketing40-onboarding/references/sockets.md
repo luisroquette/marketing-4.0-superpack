@@ -28,7 +28,7 @@ flowchart TD
 | 6 | Traffic | Tracked links with UTMs; analytics never blocks delivery | Should | claude-seo (organic) | Meta Ads, Google Ads, influencer links | Assembled funnel with no volume |
 | 7 | SEO/GEO | Audit methodology; GEO citability | Optional | claude-seo (third-party, MIT) | Any SEO methodology | The Attract stage stays uncovered |
 | 8 | AI generation | Anti-fabrication is supreme | Optional | Claude API | Any LLM, or none (manual copy) | Nothing breaks — copy becomes manual |
-| 9 | Dashboard/reporting | 7/30/90 with absence ≠ zero | Optional today | The owner's spreadsheet | Metabase/Grafana, unified dashboard (roadmap) | The owner keeps the spreadsheet |
+| 9 | Dashboard/reporting | 7/30/90 with absence ≠ zero | Optional | My_Dashboard_Makes_Me_Proud (6th piece) | Metabase/Grafana, owner's spreadsheet | The owner keeps a manual spreadsheet |
 
 ## Tiers
 

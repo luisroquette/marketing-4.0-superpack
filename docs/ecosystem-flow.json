@@ -7,7 +7,7 @@
     { "id": "tracklink", "piece": "Tracklink UTM", "stage": "CONVERT / MEASURE", "repo": "luisroquette/My_UTMs_Make_Me_Proud" },
     { "id": "mailmkt", "piece": "MailMKT cockpit", "stage": "NURTURE", "repo": "luisroquette/My_MailMKT_makes_Neil_Proud" },
     { "id": "purchase", "piece": "Purchase (the checkout you already have)", "stage": "outside the pack" },
-    { "id": "dashboard", "piece": "Unified dashboard", "stage": "MEASURE", "repo": "roadmap (next)" }
+    { "id": "dashboard", "piece": "Unified dashboard", "stage": "MEASURE", "repo": "luisroquette/My_Dashboard_Makes_Me_Proud" }
   ],
   "edges": [
     { "from": "claude-seo", "to": "autoblog", "mechanism": "shared pattern: LP SEO gate (metaTitle/description/JSON-LD) follows the same methodology; audited content is what the autoblog publishes", "direct": false },

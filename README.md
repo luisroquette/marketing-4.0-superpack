@@ -17,7 +17,7 @@
 <p align="center">
   <a href="https://github.com/luisroquette"><img alt="Marketing 4.0" src="https://img.shields.io/badge/Marketing_4.0-Applied_AI_Systems-7B2FBE?style=for-the-badge&labelColor=1A1524"></a>
   <img alt="MIT" src="https://img.shields.io/badge/license-MIT-2E7D32?style=for-the-badge&labelColor=1A1524">
-  <img alt="5 pieces" src="https://img.shields.io/badge/pieces-5-D5A62E?style=for-the-badge&labelColor=1A1524">
+  <img alt="6 pieces" src="https://img.shields.io/badge/pieces-6-D5A62E?style=for-the-badge&labelColor=1A1524">
   <img alt="graph 263 nodes" src="https://img.shields.io/badge/graph-263_nodes-C9A7FF?style=for-the-badge&labelColor=1A1524">
 </p>
 
@@ -42,7 +42,7 @@ The wizard walks the team through credentials, gates, and the first campaign.
 - [The map: the ecosystem graph](#the-map-the-ecosystem-graph)
 - [The thesis: why pieces, not a platform](#the-thesis-why-pieces-not-a-platform)
 - [The funnel in depth](#the-funnel-in-depth)
-- [The 5 pieces, one by one](#the-5-pieces-one-by-one)
+- [The 6 pieces, one by one](#the-6-pieces-one-by-one)
 - [The sockets: where the owner plugs their own tools](#the-sockets-where-the-owner-plugs-their-own-tools)
 - [The contracts: the actual LEGO part](#the-contracts-the-actual-lego-part)
 - [Recipes: ready-to-assemble flows](#recipes-ready-to-assemble-flows)
@@ -135,7 +135,7 @@ The tracklink **metrics contract** (7/30/90 calendar-filled windows, absence ≠
 
 ---
 
-## The 5 pieces, one by one
+## The 6 pieces, one by one
 
 ### Piece 1 — SEO/GEO (Attract)
 
@@ -205,6 +205,13 @@ The tracklink **metrics contract** (7/30/90 calendar-filled windows, absence ≠
   </table>
 </p>
 
+### Piece 6 — Dashboard (Measure)
+
+- **What it does:** the unified metrics dashboard — reads clicks, leads, and purchases from the same Supabase the other pieces write, applies the 7/30/90 calendar-filled contract (absence ≠ zero), and renders which channel sold. It is the layer that crosses all the others: the tracklink metrics contract feeds it, and the MailMKT cockpit contributes its documented queries.
+- **Repo:** [`luisroquette/My_Dashboard_Makes_Me_Proud`](https://github.com/luisroquette/My_Dashboard_Makes_Me_Proud)
+- **Install:** `git clone https://github.com/luisroquette/My_Dashboard_Makes_Me_Proud.git` · demo: open `demo/index.html` in a browser
+- **Plug:** Tracklink (metrics contract), MailMKT (cockpit queries) — read-only by contract: it never writes to the owner's database, and its failures never touch the funnel.
+
 ---
 
 ## The sockets: where the owner plugs their own tools
@@ -234,7 +241,7 @@ flowchart TD
 | 6 | Traffic | Should | claude-seo (organic) | Assembled funnel with no volume |
 | 7 | SEO/GEO | Optional | claude-seo (third-party) | The Attract stage stays uncovered |
 | 8 | AI generation | Optional | Claude API | Nothing breaks — copy becomes manual |
-| 9 | Dashboard/reporting | Optional today | The owner's spreadsheet | The owner keeps the spreadsheet |
+| 9 | Dashboard/reporting | Optional | My_Dashboard_Makes_Me_Proud (6th piece) | The owner keeps a manual spreadsheet |
 
 Socket 4 is the only one separating "funnel operating" from "funnel measuring
 money" — the pack stops at the click by contract; plugging checkout is the

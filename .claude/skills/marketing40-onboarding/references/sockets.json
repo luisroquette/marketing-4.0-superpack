@@ -98,9 +98,9 @@
       "tier": "optional",
       "required": false,
       "contract": "7/30/90 with absence ≠ zero",
-      "reference_plug": "The owner's spreadsheet",
-      "alternative_plugs": ["Metabase/Grafana", "Unified dashboard (roadmap)"],
-      "locked_without": "The owner keeps the spreadsheet"
+      "reference_plug": "My_Dashboard_Makes_Me_Proud (6th piece)",
+      "alternative_plugs": ["Metabase/Grafana", "The owner's spreadsheet"],
+      "locked_without": "The owner keeps a manual spreadsheet"
     }
   ]
 }

@@ -1,6 +1,6 @@
 name: release-bundle
 
-# On a v* tag, builds a single ZIP with the pack AND the 5 engines inside
+# On a v* tag, builds a single ZIP with the pack AND the 6 engines inside
 # (marketing40/), so a client downloads one file and runs `bash install.sh`
 # offline — no git, no clone.
 on:
@@ -24,6 +24,7 @@ jobs:
             "luisroquette/My_UTMs_Make_Me_Proud:my-utms-make-me-proud"
             "luisroquette/My_MailMKT_makes_Neil_Proud:my-mailmkt-makes-neil-proud"
             "luisroquette/My_Blog_Makes_Neil_Proud:my-blog-makes-neil-proud"
+            "luisroquette/My_Dashboard_Makes_Me_Proud:my-dashboard-makes-me-proud"
             "luisroquette/claude-seo:claude-seo"
           )
           for entry in "${repos[@]}"; do
